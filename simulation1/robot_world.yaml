@@ -1,0 +1,68 @@
+
+    # robot_world.yaml
+    # This file defines a simple robot world with a robot, obstacles, and sensors.
+    # The robot is configured to use omni-directional kinematics and has a lidar sensor.
+
+
+world:
+  height: 25  # the height of the world
+  width: 25  # the width of the world
+  step_time: 0.1  # 10Hz to calculate each step
+  sample_time: 0.1  # 10 Hz for render and data extraction 
+  offset: [0, 0] # the offset of the world on x and y 
+  control_mode: 'acker'  # control mode of the world, can be 'auto' or 'manual'
+  collision_mode: 'rvo'  # collision mode of the world, can be 'rvo', 'none', 'static', 'dynamic'. If set to 'none', the robot will not avoid obstacles. If set to 'static', the robot will not move. If set to 'dynamic', the robot will move around obstacles.
+  plot:
+    show-title: True  # show the title of the plot
+    title: 'Robot World'  # title of the plot
+    show-axis: True  # show the axis of the plot
+    x-label: 'X'  # label of the x-axis
+    y-label: 'Y'  # label of the y-axis
+
+robot:
+  - number: 1  # number of robots
+    kinematics: {name: 'omni'}  # kinematics of the robot, current name should be one of omni, diff, acker. If not set, this object will be static
+    shape: {name: 'circle', radius: 0.4}  # radius for circle shape
+    state: [1, 1, 0]  # x, y, theta, 2d position and orientation
+    goal: [23, 23, 0]  # x, y, theta, 2d position and orientation
+    behavior: {name: 'rvo'} # move toward the goal directly 
+    color: 'g' # green
+    sensors:
+        - name: 'lidar2d'
+          range_min: 1.0
+          range_max: 5
+          angle_range: 6.0
+          number: 50
+          noise: True
+          alpha: 0.2
+
+  - number: 1  # number of robots
+    kinematics: {name: 'omni'}  # kinematics of the robot, current name should be one of omni, diff, acker. If not set, this object will be static
+    shape: {name: 'circle', radius: 0.4}  # radius for circle shape
+    state: [20, 1, 0]  # x, y, theta, 2d position and orientation
+    goal: [2, 23, 0]  # x, y, theta, 2d position and orientation
+    behavior: {name: 'rvo'} # move toward the goal directly 
+    color: 'blue' # red
+    sensors:
+        - name: 'lidar2d'
+          range_min: 0
+          range_max: 10
+          angle_range: 7.14 
+          number: 100
+          noise: True
+          alpha: 0.3
+
+obstacle:
+  
+  - shape: {name: 'rectangle', length: 5.0, width: 41.0}
+    state: [10.0, 22.0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  
+  # Bloco horizontal linhas 42–37, colunas 13–43
+  - shape: {name: 'rectangle', length: 31.0, width: 6.0}
+    state: [28.0, 39.5, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+
