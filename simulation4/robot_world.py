@@ -1,50 +1,47 @@
 import irsim
 import time
 import numpy as np
-from matriz import marcar_colunas_personalizadas
+import random
+import math
 
-# Gerar matriz com obstáculos
-# Esta função cria uma matriz representando o ambiente com obstáculos
-matriz = marcar_colunas_personalizadas()
-#for linha in matriz:
-#    print(' '.join(linha))
+from obstaculeValido import validarPosicao
+from matriz_obstaculos import inverter_matriz
+matriz = inverter_matriz()
 
 
 env = irsim.make()
 controle = False
 collision = 0
 
-for i in range(2000):
 
+env.robot.set_goal([6, 45])
+# Define o primeiro objetivo antes do loop
+
+print(vars(env._world))
+
+
+for i in range(1000):
     env.step()
 
+    
+    
     if env.robot.collision:
-            collision += 1
-           
-            
+        collision += 1
+    
+    if env.status == "Arrived":
+        x,y = validarPosicao()
+        theta = random.uniform(-3.14, 3.14)
+        env.robot.set_goal([x, y])
 
-    if i > 15 & controle == False:
-        #env.robot.vel_max[0] = 50
-        #env.robot.vel_max[1] = 50
-        #env.robot.vel_min[0] = -50
-        #env.robot.vel_min[1] = -50
-        
-        #env.robot.color = (0, 0, 0)
-        #env.reset_plot()
-        
-        controle = True
-        #env.render()
-        #print('Velocidade alterada para 50  ')
-        
-        
+
+
 
     env.render(figure_kwargs={'dpi': 100})
-    
-env.set_title(f'Número de colisões na simulação foi {collision}') # set the title of the environment
+
+env.set_title(f'Número de colisões na simulação foi {collision}')
 env.render()
 print(collision)
 env.pause()
-time.sleep(5) 
-input("Simulação pausada. Pressione Enter para encerrar.")  
+time.sleep(5)
+input("Simulação pausada. Pressione Enter para encerrar.")
 env.end()
-
