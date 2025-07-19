@@ -1,9 +1,7 @@
 import random
-from matriz_obstaculos import gerar_matriz_obstaculos
+from matriz_obstaculos import gerar_matriz_obstaculos_invertida
 
-
-matriz = gerar_matriz_obstaculos()
-
+matriz = gerar_matriz_obstaculos_invertida()
 
 def gerarValoresAleatorios():
     x = random.randint(3, 47)
@@ -13,10 +11,5 @@ def gerarValoresAleatorios():
 def validarPosicao():
     while True:
         x, y = gerarValoresAleatorios()
-        if matriz[x][y] != 'X':
+        if matriz[49 - y][x] != 'X':  # Inverte o Y para alinhar com a matriz invertida
             return x, y
-
-
-
-
-

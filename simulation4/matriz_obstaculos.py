@@ -1,40 +1,33 @@
 import numpy as np
 
-# Gera matriz 50x50 com bordas e blocos internos
+def gerar_matriz_obstaculos_invertida():
+    matriz = np.full((50, 50), '0')
 
-def gerar_matriz_vazia(tamanho=50):
-    """Retorna matriz tamanho x tamanho preenchida com '0'."""
-    return np.full((tamanho, tamanho), '0')
+    def marcar_retangulo(cx, cy, length, width):
+        x1 = int(round(cx - length / 2))
+        x2 = int(round(cx + length / 2))
+        y1 = int(round(cy - width / 2))
+        y2 = int(round(cy + width / 2))
 
+        # Atenção: invertendo Y (50 - 1 - y) para transformar em coordenada cartesiana
+        for x in range(max(0, x1), min(50, x2)):
+            for y in range(max(0, y1), min(50, y2)):
+                matriz[49 - y, x] = 'X'  # Inverte Y para representar plano cartesiano
 
-def gerar_matriz_obstaculos(tamanho=50):
-    """
-    Gera matriz onde as duas primeiras e as duas últimas linhas e colunas
-    são marcadas como obstáculos ('X'), além de blocos horizontais internos
-    e blocos verticais conforme especificação.
-    """
-    m = gerar_matriz_vazia(tamanho)
+    # Bordas
+    marcar_retangulo(25.0, 1.0, 50.0, 2.0)     # superior
+    marcar_retangulo(25.0, 49.0, 50.0, 2.0)    # inferior
+    marcar_retangulo(1.0, 25.0, 2.0, 50.0)     # esquerda
+    marcar_retangulo(49.0, 25.0, 2.0, 50.0)    # direita
 
-    # Bordas de 2 células
-    m[0:2, :] = 'X'    # duas primeiras linhas
-    m[-2:, :] = 'X'   # duas últimas linhas
-    m[:, 0:2] = 'X'   # duas primeiras colunas
-    m[:, -2:] = 'X'   # duas últimas colunas
+    # Blocos internos
+    marcar_retangulo(10.5, 22.0, 5.0, 41.0)    # vertical
+    marcar_retangulo(28.0, 39.5, 31.0, 6.0)    # horizontal 1
+    marcar_retangulo(28.0, 12.5, 31.0, 6.0)    # horizontal 2
+    marcar_retangulo(33.0, 25.0, 30.0, 10.0)   # horizontal 3
 
-    # Blocos horizontais internos
-    m[40:45, 13:44] = 'X'  # linhas 37–42, colunas 13–43
-    m[10:16, 13:44] = 'X'  # linhas 10–15, colunas 13–43
-
-    # Bloco vertical central
-    m[21:35, 18:50] = 'X'  # linhas 20–30, colunas 18–48
-
-    # Bloco vertical esquerdo extenso
-    m[1:45, 7:13] = 'X'    # linhas 1–43, colunas 8–13
-
-    return m
+    return matriz
 
 
-def inverter_matriz():
-    matriz = gerar_matriz_obstaculos()
-    return matriz[::-1, :]
+
 
