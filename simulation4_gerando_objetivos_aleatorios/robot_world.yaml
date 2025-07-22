@@ -5,7 +5,7 @@ world:
   step_time: 0.1 
   sample_time: 0.1  
   offset: [0, 0]  
-  collision_mode: 'unobstructed_obstacles' #'unobstructed_obstacles'  # hard, soft, none 
+  collision_mode: 'soft' #'unobstructed_obstacles'  # hard, soft, none 
   control_mode: 'auto' 
 
 robot:
