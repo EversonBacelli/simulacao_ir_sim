@@ -46,6 +46,6 @@ class No:
         for filho in listaPotenciaisFilhos:
             if filho:
                 vizinhos.append(filho)
-                
+        self.numeroVizinhos = 0   
         return vizinhos
         

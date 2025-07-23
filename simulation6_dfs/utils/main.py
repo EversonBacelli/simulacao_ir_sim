@@ -1,4 +1,5 @@
 from no import No
+import copy
 from arvore import gerarArvore, printarArvore
 
 
@@ -8,73 +9,55 @@ matriz = No.matriz
 
 
 
-#printarArvore(No.matriz)
+# printarArvore(No.matriz)
+
+# objetivo
+matriz[46][15].valor = "C"
+
+
+origem = matriz[4][4]
 
 
 
-# #Objetivo
-matriz[47][22].valor = 'C'
+def buscarObjetivoIterativo(inicio):
+    pilha = [inicio]
+    caminho = []
+
+    while pilha:
+        atual = pilha[-1]  # topo da pilha
+        atual.visitado = True
+        caminho.append(atual)
+        # print(atual.posicao)
+
+        if atual.valor == 'C':
+            return copy.deepcopy(caminho)
+
+        encontrou_filho = False
+        for vizinho_pos in atual.vizinhos:
+            vizinho = matriz[vizinho_pos[0]][vizinho_pos[1]]
+
+            if not vizinho.visitado:
+                vizinho.visitado = True
+                pilha.append(vizinho)
+                encontrou_filho = True
+                break  # vai para esse vizinho antes de explorar outros
+
+        if not encontrou_filho:
+            pilha.pop()      # volta
+            caminho.pop()    # remove do caminho atual
+
+    return None
 
 
-## Origem
-origem = matriz[47][5]
+# Executar a busca
+resultado = buscarObjetivoIterativo(origem)
 
-pilha = []
-
-def buscarObjetivo(no):
-    
-    if no.visitado == False:
-        no.signal = True
-        pilha.append(no)
-    else: 
-        raise ValueError("Nó já visitado")
-    
-    if no.valor == 'C':
-        print('Objetivo encontrado na posicao', no.posicao)
-        return True
-    else:
-        print('Visitando nó:', no.posicao)
-
-
-    no.visitado = True
-    pilha.append(no)
-    
-    if no.valor == 'C':
-        print('Objetivo encontrado na posicao', no.posicao)
-        return True
-    
-    for vizinho in no.vizinhos:
-        linha, coluna = vizinho
-        vizinho_no = matriz[linha][coluna]
-        
-        if not vizinho_no.visitado and vizinho_no.valor != 'X':
-            if buscarObjetivo(vizinho_no):
-                return True
-    
-    pilha.pop()
-    return False
-
+if resultado:
+    print("\nCaminho até o objetivo:")
+    for end in resultado:
+        print(end.posicao, end='')
+else:
+    print("Objetivo não encontrado")
 
 
 
-
-
-
-
-
-
-def buscarValor(index):
-    vizinho = origem.vizinhos[index]
-    try:
-        linha = vizinho[0]
-        coluna = vizinho[1]
-
-        if matriz[linha][coluna].valor != 'C':
-            print(f'Não encontrado na posicao {matriz[linha][coluna].posicao}')
-            raise ValueError("Não é possível criar um nó em um obstáculo")
-        else: 
-            print('Encontrado na posicao', matriz[linha][coluna].posicao)
-    except:
-        buscarValor(index+1)
-
-buscarValor(0)

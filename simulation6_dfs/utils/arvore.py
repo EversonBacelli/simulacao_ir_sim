@@ -26,7 +26,7 @@ def printarArvore(matriz):
                 
             
             try:
-                print(f' posicao = {no.posicao} - vizinhos: {(no.vizinhos)} ')
+                print(f' posicao = {no.posicao} - vizinhos: {(no.vizinhos)} numeroVizinho {no.numeroVizinhos}')
             except:
                 print('', end='')
             

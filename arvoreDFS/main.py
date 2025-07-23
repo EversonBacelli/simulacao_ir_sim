@@ -14,7 +14,7 @@ noA = No(10, [noB, noE])
 pilha = [noA]
 
 def arvore_dfs(pilha):
-    print(pilha[-1].valor)
+    # print(pilha[-1].valor)
     pilha[-1].visitado = True
 
     if pilha[-1].valor == 8:
@@ -35,7 +35,6 @@ def buscarFilhos(pilha):
     for vizinho in vizinhos:
         if not vizinho.visitado:
             pilha[-1].numeroVisitas += 1
-            vizinho.visitado = True
             pilha.append(vizinho)
             return arvore_dfs(pilha)
     return arvore_dfs(pilha)  # Se todos já foram visitados, tenta continuar
