@@ -4,6 +4,7 @@ from matriz_obstaculos import gerar_matriz_obstaculos_invertida
 class No:
     matriz = gerar_matriz_obstaculos_invertida()
     filhos = []
+    
     def __init__(self, valor, linha, coluna ):
         if valor == "X":
             raise ValueError("Não é possível criar um nó em um obstáculo")
@@ -12,6 +13,7 @@ class No:
         self.vizinhos = self.incluirVizinhos(linha, coluna)
         self.visitado = False
         self.posicao = [linha, coluna]
+        origem = None
             
     def validarVizinho(self, linha, coluna):
         if linha < 51 and linha > 0 and coluna > 0 and coluna < 51 :
@@ -19,10 +21,7 @@ class No:
             if No.matriz[linha][coluna] == 'X': 
                 return False
             else: 
-                resp = self.validarPosicao(linha, coluna)
-                if resp:
-                    return [linha, coluna]
-                return False
+                return [linha, coluna]
         else:
             return False
 

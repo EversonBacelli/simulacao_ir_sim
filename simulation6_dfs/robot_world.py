@@ -5,8 +5,8 @@ import random
 import math
 from goals import obter_objetivos
 
-from obstaculeValido import validarPosicao
-from matriz_obstaculos import gerar_matriz_obstaculos_invertida
+from simulation6_dfs.utils.obstaculeValido import validarPosicao
+from simulation6_dfs.utils.matriz_obstaculos import gerar_matriz_obstaculos_invertida
 
 matriz =  gerar_matriz_obstaculos_invertida()
 goals = obter_objetivos()
