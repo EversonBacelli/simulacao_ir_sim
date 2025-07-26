@@ -12,6 +12,8 @@ matriz =  gerar_matriz_obstaculos_invertida()
 goals = obter_objetivos()
 
 
+
+
 env = irsim.make()
 controle = False
 collision = 0

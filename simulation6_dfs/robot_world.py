@@ -3,58 +3,76 @@ import time
 import numpy as np
 import random
 import math
-from goals import obter_objetivos
-
+from simulation6_dfs.utils.goals import obter_objetivos
+from simulation6_dfs.utils.no import No
 from simulation6_dfs.utils.obstaculeValido import validarPosicao
 from simulation6_dfs.utils.matriz_obstaculos import gerar_matriz_obstaculos_invertida
+from simulation6_dfs.utils.main import algDfs
+
 
 matriz =  gerar_matriz_obstaculos_invertida()
-goals = obter_objetivos()
+# goals = obter_objetivos()
+goals = [ [46,4] , [5,5] , [47, 6], [6,5], [49,49]]
 
 
-env = irsim.make()
-controle = False
-collision = 0
-arrived = 0
-goals_index = 0
+inicio = [4, 4]
 
-caminho = []
-env.robot.set_goal(goals[0])
+for obj in goals:
+    print(inicio, obj)
+    resp = algDfs(inicio, obj)
+    # if resp is not None:
+    #     print(resp, end=",")
+    #     print('----')
+    for linha in No.matriz:
+        for no in linha:
+            if no is not None:
+                print(f'{no.posicao}  {no.visitado}')
+            print('-----')
+    inicio = obj
 
-# Define o primeiro objetivo antes do loop
 
 
-for i in range(1000):
-    env.step()
+# env = irsim.make()
+# controle = False
+# collision = 0
+# arrived = 0
+# goals_index = 0
 
-    caminho.append([(env.robot.state[0])[0],(env.robot.state[1])[0], (env.robot.state[2])[0]])
-    if env.robot.collision:
-        collision += 1
-        env.robot.state[2] = math.radians(90)
+# env.robot.set_goal(goals[0])
+
+# # Define o primeiro objetivo antes do loop
+
+
+# for i in range(1000):
+#     env.step()
+
+#     if env.robot.collision:
+#         collision += 1
+#         env.robot.state[2] = math.radians(90)
     
-    if env.status == "Arrived":
-        arrived += 1
-        goals_index += 1
-        if goals_index < len(goals) :
-            env.robot.set_goal(goals[goals_index])
-        else:
-            print("Todos os objetivos alcançados.")
-            break
+#     if env.status == "Arrived":
+#         arrived += 1
+#         goals_index += 1
+#         if goals_index < len(goals) :
+#             env.robot.set_goal(goals[goals_index])
+#         else:
+#             print("Todos os objetivos alcançados.")
+#             break
         
 
       
 
 
-    env.render(figure_kwargs={'dpi': 100})
+#     env.render(figure_kwargs={'dpi': 100})
 
-for end in caminho:
-    print(f'[{end[0]}, {end[1]}, {end[2]}],')
+# for end in caminho:
+#     print(f'[{end[0]}, {end[1]}, {end[2]}],')
 
-env.set_title(f'Número de colisões na simulação foi {collision}')
-env.render()
-print(collision)
-print(arrived)
-env.pause()
-time.sleep(5)
-input("Simulação pausada. Pressione Enter para encerrar.")
-env.end()
+# env.set_title(f'Número de colisões na simulação foi {collision}')
+# env.render()
+# print(collision)
+# print(arrived)
+# env.pause()
+# time.sleep(5)
+# input("Simulação pausada. Pressione Enter para encerrar.")
+# env.end()

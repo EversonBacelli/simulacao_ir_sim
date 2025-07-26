@@ -1,4 +1,4 @@
-from matriz_obstaculos import gerar_matriz_obstaculos_invertida
+from .matriz_obstaculos import gerar_matriz_obstaculos_invertida
 
 
 class No:

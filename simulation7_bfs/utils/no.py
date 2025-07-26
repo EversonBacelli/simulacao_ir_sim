@@ -13,7 +13,7 @@ class No:
         self.vizinhos = self.incluirVizinhos(linha, coluna)
         self.visitado = False
         self.posicao = [linha, coluna]
-        origem = None
+        self.pai = None
             
     def validarVizinho(self, linha, coluna):
         if linha < 51 and linha > 0 and coluna > 0 and coluna < 51 :
@@ -21,6 +21,7 @@ class No:
             if No.matriz[linha][coluna] == 'X': 
                 return False
             else: 
+
                 return [linha, coluna]
         else:
             return False

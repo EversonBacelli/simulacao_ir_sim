@@ -1,6 +1,6 @@
 
 import random
-from simulation6_dfs.utils.matriz_obstaculos import gerar_matriz_obstaculos_invertida
+from .matriz_obstaculos import gerar_matriz_obstaculos_invertida
 
 matriz = gerar_matriz_obstaculos_invertida()
 

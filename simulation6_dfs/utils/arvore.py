@@ -1,5 +1,4 @@
-from no import No
-
+from .no import No
 
 def gerarArvore(matriz):
     novaMatriz = [[None for _ in range(50)] for _ in range(50)]

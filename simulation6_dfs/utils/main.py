@@ -1,25 +1,23 @@
-from no import No
+from .no import No
+import numpy
 import copy
-from arvore import gerarArvore, printarArvore
+from .arvore import gerarArvore, printarArvore
+from .matriz_obstaculos import gerar_matriz_obstaculos_invertida
 
-
-
-No.matriz = gerarArvore(No.matriz)
+No.matriz = gerarArvore(gerar_matriz_obstaculos_invertida())
 matriz = No.matriz
 
 
 
-# printarArvore(No.matriz)
-
-# objetivo
-matriz[46][15].valor = "C"
-origem = matriz[4][4]
 
 
-
-def buscarObjetivoIterativo(inicio):
+def buscarObjetivoIterativo(origem, destino):
+    inicio = matriz[origem[0]][origem[1]]
+    fim = matriz[destino[0]][destino[1]]
     pilha = [inicio]
     
+    if inicio is None or fim is None:
+        return None;
 
     # Enquanto a pilha não estiver vazia
     while pilha:
@@ -29,7 +27,7 @@ def buscarObjetivoIterativo(inicio):
         # print(atual.posicao)
 
         # Valida se o objetivo foi encontrado
-        if atual.valor == 'C':
+        if atual.posicao == fim.posicao:
             return pilha
 
         # Explorar Vizinhos
@@ -51,14 +49,30 @@ def buscarObjetivoIterativo(inicio):
 
 
 # Executar a busca
-resultado = buscarObjetivoIterativo(origem)
 
-if resultado:
-    print("\nCaminho até o objetivo:")
-    for end in resultado:
-        print(end.posicao, end=',')
-else:
-    print("Objetivo não encontrado")
+
+def algDfs(origem, destino):
+    caminho = []
+    resultado = buscarObjetivoIterativo(origem, destino)
+    if resultado is not None:
+        for no in resultado:
+            caminho.append(no.posicao)
+
+    No.matriz = gerarArvore(gerar_matriz_obstaculos_invertida())
+
+   
+    return caminho
+
+
+
+# if resultado:
+#     print("\nCaminho até o objetivo:")
+#     for end in resultado:
+#         print(end.posicao, end=',')
+#     print()
+#     print(len(resultado))
+# else:
+#     print("Objetivo não encontrado")
 
 
 
