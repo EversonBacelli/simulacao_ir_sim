@@ -8,16 +8,14 @@ No.matriz = gerarArvore(gerar_matriz_obstaculos_invertida())
 matriz = No.matriz
 
 
-
-
-
 def buscarObjetivoIterativo(origem, destino):
+    
     inicio = matriz[origem[0]][origem[1]]
     fim = matriz[destino[0]][destino[1]]
     pilha = [inicio]
     
     if inicio is None or fim is None:
-        return None;
+        return pilha;
 
     # Enquanto a pilha não estiver vazia
     while pilha:
@@ -40,11 +38,11 @@ def buscarObjetivoIterativo(origem, destino):
                 pilha.append(vizinho)
                 encontrou_filho = True
                 break  # vai para esse vizinho antes de explorar outros
-        
+        #print('Pilha: ' , len(pilha))
         # Caso nenhum vizinho valido seja encontrado
         if not encontrou_filho:
             pilha.pop()      # volta
-
+    
     return None
 
 
@@ -57,22 +55,18 @@ def algDfs(origem, destino):
     if resultado is not None:
         for no in resultado:
             caminho.append(no.posicao)
-
-    No.matriz = gerarArvore(gerar_matriz_obstaculos_invertida())
-
    
+
+    for linha in No.matriz:
+        for no in linha:
+            if no is not None:
+                no.visitado = False
+
     return caminho
 
 
 
-# if resultado:
-#     print("\nCaminho até o objetivo:")
-#     for end in resultado:
-#         print(end.posicao, end=',')
-#     print()
-#     print(len(resultado))
-# else:
-#     print("Objetivo não encontrado")
+
 
 
 
