@@ -4,19 +4,21 @@ world:
   step_time: 0.1
   sample_time: 0.1
   offset: [0, 0]
-  collision_mode: 'unobstructed_obstacles'
-  control_mode: 'auto'
+  collision_mode: 'unobstructed'
+  control_mode: 'manual'
 
 robot:
   - kinematics: {name: 'omni'}
-    shape: {name: 'circle', radius: 0.4}
-    state: [4, 4, 0.4]
+    shape: {name: 'circle', radius: 0.2}
+    state: [45,45, 0.4]
     goal: [16, 6, 0]
     goal_threshold: 1.0
-    vel_max: [20, 20]
-    vel_min: [-20, -20]
-    behavior: {name: 'dash', wander: False, range_low: [0, 0, -3.14], range_high: [10, 10, 3.14], angle_tolerance: 0.1}
-    plot: {color: 'b'}  # <- corrigido aqui
+    vel_max: [3, 3]
+    vel_min: [-5, -5]
+    behavior: {name: 'dash'}
+    plot:
+      show_trajectory: True
+      show_goal: True
     sensors:
       - name: 'lidar2d'
         range_min: 0.5

@@ -13,6 +13,7 @@ class No:
         self.vizinhos = self.incluirVizinhos(linha, coluna)
         self.visitado = False
         self.posicao = [linha, coluna]
+        self.equivalente = [coluna, 49 - linha]
         origem = None
             
     def validarVizinho(self, linha, coluna):

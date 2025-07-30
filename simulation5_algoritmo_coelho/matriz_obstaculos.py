@@ -15,16 +15,16 @@ def gerar_matriz_obstaculos_invertida():
                 matriz[49 - y, x] = 'X'  # Inverte Y para representar plano cartesiano
 
     # Bordas
-    marcar_retangulo(25.0, 1.0, 50.0, 2.0)     # superior
-    marcar_retangulo(25.0, 49.0, 50.0, 2.0)    # inferior
-    marcar_retangulo(1.0, 25.0, 2.0, 50.0)     # esquerda
-    marcar_retangulo(49.0, 25.0, 2.0, 50.0)    # direita
+    # marcar_retangulo(25.0, 1.0, 50.0, 2.0)     # superior
+    # marcar_retangulo(25.0, 49.0, 50.0, 2.0)    # inferior
+    # marcar_retangulo(1.0, 25.0, 2.0, 50.0)     # esquerda
+    # marcar_retangulo(49.0, 25.0, 2.0, 50.0)    # direita
 
-    # Blocos internos
-    marcar_retangulo(10.5, 22.0, 5.0, 41.0)    # vertical
-    marcar_retangulo(28.0, 39.5, 31.0, 6.0)    # horizontal 1
-    marcar_retangulo(28.0, 12.5, 31.0, 6.0)    # horizontal 2
-    marcar_retangulo(33.0, 25.0, 30.0, 10.0)   # horizontal 3
+    # # Blocos internos
+    # marcar_retangulo(10.5, 22.0, 5.0, 41.0)    # vertical
+    # marcar_retangulo(28.0, 39.5, 31.0, 6.0)    # horizontal 1
+    # marcar_retangulo(28.0, 12.5, 31.0, 6.0)    # horizontal 2
+    # marcar_retangulo(33.0, 25.0, 30.0, 10.0)   # horizontal 3
 
     return matriz
 

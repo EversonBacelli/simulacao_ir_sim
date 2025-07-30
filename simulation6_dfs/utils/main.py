@@ -63,10 +63,3 @@ def algDfs(origem, destino):
                 no.visitado = False
 
     return caminho
-
-
-
-
-
-
-
