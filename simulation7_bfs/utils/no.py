@@ -1,4 +1,4 @@
-from matriz_obstaculos import gerar_matriz_obstaculos_invertida
+from .matriz_obstaculos import gerar_matriz_obstaculos_invertida
 
 
 class No:
@@ -14,7 +14,7 @@ class No:
         self.visitado = False
         self.posicao = [linha, coluna]
         self.pai = None
-        self.correspondente = [49 - coluna, linha]
+        self.equivalente = [coluna, 49 - linha]
             
     def validarVizinho(self, linha, coluna):
         if linha < 51 and linha > 0 and coluna > 0 and coluna < 51 :

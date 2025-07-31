@@ -1,5 +1,4 @@
-from no import No
-
+from .no import No
 
 def gerarArvore(matriz):
     novaMatriz = [[None for _ in range(50)] for _ in range(50)]
@@ -7,13 +6,13 @@ def gerarArvore(matriz):
     for i in range(50):
         for j in range(50):
             try:
-                if matriz[49-i][j] == 'X':
-                    novaMatriz[49-i][j] = None
+                if matriz[i][j] == 'X':
+                    novaMatriz[i][j] = None
                 else:
-                    no = No(matriz[49-i][j], i, j)
-                    novaMatriz[49-i][j] = no
+                    no = No(matriz[i][j], i, j)
+                    novaMatriz[i][j] = no
             except:
-                novaMatriz[49-i][j] = None
+                novaMatriz[i][j] = None
     
     return novaMatriz
 
@@ -31,4 +30,3 @@ def printarArvore(matriz):
                 print('', end='')
             
             print('', end='')
-

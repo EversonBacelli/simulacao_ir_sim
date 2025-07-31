@@ -1,85 +1,76 @@
-# config ambiente simulation3/robot_world.yaml
 world:
   height: 50
-  width: 50   
-  step_time: 0.1 
-  sample_time: 0.1  
-  offset: [0, 0]  
-  collision_mode: 'unobstructed_obstacles' #'unobstructed_obstacles'  # hard, soft, none 
-  control_mode: 'auto' 
+  width: 50
+  step_time: 0.1
+  sample_time: 0.1
+  offset: [0, 0]
+  collision_mode: 'unobstructed'
+  control_mode: 'manual'
 
 robot:
-  
-  kinematics: {name: 'omni'}  # kinematics of the robot, current name should be one of omni, diff, acker. If not set, this object will be static
-  shape: {name: 'circle', radius: 0.4} 
-  state: [4, 4, 0.4]  # x, y, theta, 2d position and orientation
-  goal: [16, 6, 0]  # x, y, theta, 2d position and orientation
-  goal_threshold: 1.0
-  vel_max: [ 20, 20]
-  vel_min: [-20, -20]
-  behavior: {name: 'dash', wander: False, range_low: [0, 0, -3.14], range_high: [10, 10, 3.14], angle_tolerance: 0.1}  
-  color: 'b' # red
-  sensors:
-    - name: 'lidar2d'
-      range_min: 0.5
-      range_max: 20.0
-      angle_range: 6.38
-      number: 100
-      noise: True
-      alpha: 0.3
-
+  - kinematics: {name: 'omni'}
+    shape: {name: 'circle', radius: 0.2}
+    state: [45,45, 0.4]
+    goal: [16, 6, 0]
+    goal_threshold: 0.1
+    vel_max: [3, 3]
+    vel_min: [-5, -5]
+    behavior: {name: 'dash'}
+    plot:
+      show_trajectory: True
+      show_goal: True
+    sensors:
+      - name: 'lidar2d'
+        range_min: 0.5
+        range_max: 20.0
+        angle_range: 6.38
+        number: 100
+        noise: True
+        alpha: 0.3
 
 obstacle:
-  # Borda superior
   - shape: {name: 'rectangle', length: 50.0, width: 2.0}
     state: [25.0, 1.0, 0]
     unobstructed: False
     plot: {color: 'black'}
     static: True
 
-  # Borda inferior
   - shape: {name: 'rectangle', length: 50.0, width: 2.0}
     state: [25.0, 49.0, 0]
     unobstructed: False
     plot: {color: 'black'}
     static: True
 
-  # Borda esquerda
   - shape: {name: 'rectangle', length: 2.0, width: 50.0}
     state: [1.0, 25.0, 0]
     unobstructed: False
     plot: {color: 'black'}
     static: True
 
-  # Borda direita
   - shape: {name: 'rectangle', length: 2.0, width: 50.0}
     state: [49.0, 25.0, 0]
     unobstructed: False
     plot: {color: 'black'}
     static: True
 
-  # Bloco vertical (colunas 8–13, linhas 1–43)
   - shape: {name: 'rectangle', length: 5.0, width: 41.0}
     state: [10.5, 22.0, 0]
     unobstructed: False
     plot: {color: 'black'}
     static: True
 
-  # Bloco horizontal (linhas 37–42, colunas 13–43)
   - shape: {name: 'rectangle', length: 31.0, width: 6.0}
     state: [28.0, 39.5, 0]
     unobstructed: False
     plot: {color: 'black'}
     static: True
 
-  # Bloco horizontal (linhas 10–15, colunas 13–43)
   - shape: {name: 'rectangle', length: 31.0, width: 6.0}
     state: [28.0, 12.5, 0]
     unobstructed: False
     plot: {color: 'black'}
     static: True
 
-  # Bloco horizontal (linhas 20–30, colunas 18–48)
   - shape: {name: 'rectangle', length: 30.0, width: 10.0}
     state: [33.0, 25.0, 0]
     unobstructed: False

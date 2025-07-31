@@ -1,7 +1,7 @@
-from no import No
 import copy
-from arvore import gerarArvore, printarArvore
-
+from .arvore import gerarArvore, printarArvore
+from .no import No
+from .matriz_obstaculos import gerar_matriz_obstaculos_invertida
 
 No.matriz = gerarArvore(No.matriz)
 matriz = No.matriz
@@ -9,12 +9,11 @@ matriz = No.matriz
 
 # printarArvore(No.matriz)
 # objetivo
-matriz[46][15].valor = "C"
-origem = matriz[4][4]
+
 # origem.pai = matriz[3][4]
 
 
-def algoritmoBFS(inicio):
+def varredura(inicio, destino):
     pilha = [inicio]
     
 
@@ -30,7 +29,7 @@ def algoritmoBFS(inicio):
             # print(no.posicao)
 
             # validar o resultado
-            if validarNo(no):
+            if validarNo(no, destino):
                 pilha.pop()
                 pilha.append(no)
                 return pilha
@@ -45,43 +44,23 @@ def algoritmoBFS(inicio):
         if len(next) > 0:
             pilha.append(next)
 
-
-
-
-def validarNo(no):
-    posicao = no.posicao
-    if matriz[posicao[0]][posicao[1]].valor == 'C':
+def validarNo(no, destino):
+    if no.posicao == destino.posicao:
         return True
-
-retorno = algoritmoBFS(origem)
-
-
-obj = retorno[-1]
-caminho = []
-
-while True:
-    caminho.append(obj.posicao)
     
-    if obj.posicao == origem.posicao:
-        break;
-    obj = obj.pai
+def algoritmoBFS(origem, destino):
+    retorno = varredura(origem, destino)
+    caminho = []
+    obj = retorno[-1]
+    while True:
+        caminho.append(obj.posicao)
+        
+        if obj.posicao == origem.posicao:
+            break;
+        obj = obj.pai
 
-# caminho.append(origem.posicao)
- 
-Rcaminho = reversed(caminho) 
-for no in Rcaminho:
-    print(no, end=',')
-print()
-print(len(caminho))
+    Rcaminho = list(reversed(caminho)) 
+    return Rcaminho
 
-# def definirCaminho(retorno):
-#     objetivo = retorno[-1]
-#     caminho = []
-#     while objetivo is not None:
-#         caminho.append(objetivo)
-#         objetivo = objetivo.pai
-#     return reversed(caminho)
 
-# caminho = definirCaminho(retorno)
 
-# print(caminho)
