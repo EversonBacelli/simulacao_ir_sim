@@ -7,13 +7,10 @@ No.matriz = gerarArvore(No.matriz)
 matriz = No.matriz
 
 
-# printarArvore(No.matriz)
-# objetivo
 
-# origem.pai = matriz[3][4]
-
-
-def varredura(inicio, destino):
+def varredura(pInicio, pDestino):
+    inicio = matriz[pInicio[0]][pInicio[1]]
+    destino = matriz[pDestino[0]][pDestino[1]]
     pilha = [inicio]
     
 
@@ -52,12 +49,19 @@ def algoritmoBFS(origem, destino):
     retorno = varredura(origem, destino)
     caminho = []
     obj = retorno[-1]
-    while True:
+    while retorno:
         caminho.append(obj.posicao)
         
-        if obj.posicao == origem.posicao:
+        if obj.posicao == matriz[origem[0]][origem[1]].posicao:
             break;
         obj = obj.pai
+
+    for linha in matriz:
+        for no in linha:
+            if no is not None:
+                no.visitado = False
+                no.pai = None
+
 
     Rcaminho = list(reversed(caminho)) 
     return Rcaminho

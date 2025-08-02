@@ -43,11 +43,10 @@ while True:
         if len(goals) > 1:
              linha = goals[0][0]
              coluna = goals[0][1]
-             print()
+            
              
              goals.pop(0)
              obj = goals[0]
-             print(goals)
              equivalente = m[goals[0][0]][goals[0][1]].equivalente
              env.robot.set_goal(equivalente)
              caminho = algDfs([linha, coluna], obj)
@@ -57,7 +56,6 @@ while True:
     else:
 
         posicao = m[caminho[0][0]][caminho[0][1]].equivalente
-        print(posicao)
         x = posicao[0]
         y = posicao[1]
         env.robot._state[0] = [x]  
@@ -66,26 +64,7 @@ while True:
     env.render(figure_kwargs={'dpi': 100})
 
 
-#     if env.status == "Arrived":
-#           print('Objetivo alcançado:', env.robot.goal)
-#           arrived += 1
-#           linha = goals[0][0]
-#           coluna = goals[0][1]
-#           inicio = [linha, coluna]
-#           goals.pop(0)
-#           if len(goals) != 0 :
-#               env.robot.set_goal(goals[0])
-#               caminho = algDfs(inicio, goals[0])  #Calcula o caminho para o próximo objetivo
-#           else:
-#               print("Todos os objetivos alcançados.")
-#               break
-     
-# #     #Remove o primeiro elemento do caminho
-#      posicao = m[caminho[0][0]][caminho[0][1]].equivalente
-#      x = posicao[0]
-# #    y = posicao[1]
-#     env.robot._state[0] = [x]  
-#     env.robot._state[1] = [y]
+
     
    
 #     caminho.pop(0)

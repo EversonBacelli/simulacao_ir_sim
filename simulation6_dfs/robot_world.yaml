@@ -17,7 +17,7 @@ robot:
     vel_min: [-5, -5]
     behavior: {name: 'dash'}
     plot:
-      #show_trajectory: True
+      show_trajectory: True
       show_goal: True
     sensors:
       - name: 'lidar2d'
