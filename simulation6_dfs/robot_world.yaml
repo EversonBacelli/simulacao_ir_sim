@@ -1,8 +1,8 @@
 world:
   height: 50
   width: 50
-  step_time: 0.1
-  sample_time: 0.1
+  step_time: 0.01
+  sample_time: 0.01
   offset: [0, 0]
   collision_mode: 'unobstructed'
   control_mode: 'manual'
@@ -13,11 +13,11 @@ robot:
     state: [45,45, 0.4]
     goal: [16, 6, 0]
     goal_threshold: 1.0
-    vel_max: [3, 3]
+    vel_max: [2, 2]
     vel_min: [-5, -5]
     behavior: {name: 'dash'}
     plot:
-      show_trajectory: True
+      #show_trajectory: True
       show_goal: True
     sensors:
       - name: 'lidar2d'
