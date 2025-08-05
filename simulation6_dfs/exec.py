@@ -12,9 +12,6 @@ from simulation6_dfs.utils.no import No
 
 matriz =  gerar_matriz_obstaculos_invertida()
 goals = obter_objetivos()
-
-
-
 m = No.matriz
 
 
@@ -24,21 +21,13 @@ collision = 0
 arrived = 0
 
 
-env.robot._state[0] = [46]  # Define a posição inicial do robô
-env.robot._state[1] = [3]
 
-env.robot.set_goal([4,45])  # Define o primeiro objetivo
-caminho = algDfs([45,45],goals[0] )  # Calcula o caminho inicial
-
-
-# for no in caminho:
-#      print(m[no[0]][no[1]].posicao , '--', m[no[0]][no[1]].equivalente)
-
+env = algDfs([45,45], goals[0], env )  # Calcula o caminho inicial
 
 # Define o primeiro objetivo antes do loop
 while True:
     env.step()
-
+    
     if env.status == "Arrived":
         if len(goals) > 1:
              linha = goals[0][0]
@@ -47,23 +36,13 @@ while True:
              
              goals.pop(0)
              obj = goals[0]
-             equivalente = m[goals[0][0]][goals[0][1]].equivalente
-             env.robot.set_goal(equivalente)
-             caminho = algDfs([linha, coluna], obj)
+             #equivalente = m[goals[0][0]][goals[0][1]].equivalente
+             # env.robot.set_goal(equivalente)
+             env = algDfs([linha, coluna], obj, env)
         else:
             input('Aperte qualquer botão para finalizar')
             env.end()
-    else:
-
-        posicao = m[caminho[0][0]][caminho[0][1]].equivalente
-        x = posicao[0]
-        y = posicao[1]
-        env.robot._state[0] = [x]  
-        env.robot._state[1] = [y]
-        caminho.pop(0)
-    env.render(figure_kwargs={'dpi': 100})
-
-
+    env.render()
 
     
    

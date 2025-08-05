@@ -30,3 +30,4 @@ def printarArvore(matriz):
                 print('', end='')
             
             print('', end='')
+

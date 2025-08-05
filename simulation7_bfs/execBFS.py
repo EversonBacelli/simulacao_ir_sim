@@ -8,7 +8,7 @@ from simulation7_bfs.utils.goals import obter_objetivos
 from simulation7_bfs.utils.obstaculeValido import validarPosicao
 from simulation7_bfs.utils.matriz_obstaculos import gerar_matriz_obstaculos_invertida
 from simulation7_bfs.utils.no import No
-from simulation7_bfs.utils.arvore import gerarArvore
+from simulation7_bfs.utils.arvore import gerarArvore, printarArvore
 from simulation7_bfs.utils.main import algoritmoBFS
 
 matriz =  gerar_matriz_obstaculos_invertida()
@@ -17,6 +17,8 @@ goals = obter_objetivos()
 
 
 m = No.matriz
+
+
 
 env = irsim.make('/simulation7_bfs/robot_world.yaml')
 controle = False
@@ -34,7 +36,7 @@ caminho = algoritmoBFS([45,45], [4,4])  # Calcula o caminho inicial
 #     print(no , '--', m[no[0]][no[1]].equivalente)
 
 
-# # Define o primeiro objetivo antes do loop
+# # # Define o primeiro objetivo antes do loop
 # Define o primeiro objetivo antes do loop
 while True:
     env.step()
@@ -44,7 +46,7 @@ while True:
              linha = goals[0][0]
              coluna = goals[0][1]
              print(goals[0])
-             
+           
              goals.pop(0)
              obj = goals[0]
              equivalente = m[goals[0][0]][goals[0][1]].equivalente

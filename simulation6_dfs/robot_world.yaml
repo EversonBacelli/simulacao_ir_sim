@@ -10,12 +10,10 @@ world:
 robot:
   - kinematics: {name: 'omni'}
     shape: {name: 'circle', radius: 0.2}
-    state: [45,45, 0.4]
-    goal: [16, 6, 0]
+    state: [45, 4, 0.4]
     goal_threshold: 1.0
     vel_max: [2, 2]
     vel_min: [-5, -5]
-    behavior: {name: 'dash'}
     plot:
       show_trajectory: True
       show_goal: True
