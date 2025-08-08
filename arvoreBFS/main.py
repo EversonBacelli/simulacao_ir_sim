@@ -1,4 +1,4 @@
-from no import No
+from .no import No, Status
 import copy
 
 # Construindo a árvore
@@ -18,89 +18,108 @@ noM = No("M", [])
 noN = No("N", [])
 noO = No("O", [])
 
-noA.incluirVizinhos([noB, noE])
-noB.incluirVizinhos([noC, noD])
-noC.incluirVizinhos([noH, noI])
-noD.incluirVizinhos([noJ, noK])
-noE.incluirVizinhos([noF, noG])
+noA.incluirVizinhos([noB, noC])
+noB.pai = noA
+noC.pai = noA
+noB.incluirVizinhos([noD, noE])
+noD.pai = noB
+noE.pai = noB
+noC.incluirVizinhos([noF, noG])
+noF.pai = noC
+noG.pai = noC
+noD.incluirVizinhos([noH, noI])
+noH.pai = noD
+noI.pai = noD
+noE.incluirVizinhos([noJ, noK])
+noJ.pai = noE
+noK.pai = noE
 noF.incluirVizinhos([noL, noM])
+noL.pai = noF
+noM.pai = noF
 noG.incluirVizinhos([noN, noO])
-
-def printPilha(pilha):
-   for i in pilha:
-     if type(i) is not list:
-         print(i.valor, end=" -> ")
-     else:
-         for j in i:
-             print(j.valor, end=" -> ")    
-   print('---')
+noN.pai = noG
+noO.pai = noG
 
 
-def buscarObjetivo(topo):
-    pilha = [topo]
-    
-    # Explorando a pilha
-    while pilha:
-        # printPilha(pilha)
-        estagioAtual = pilha[-1]
-       
-        if type(estagioAtual) is not list:
-            estagioAtual = [estagioAtual]
-    
-        # Validar nós
-        next = []
 
-        for no in estagioAtual:
-            print(f"Visitando: {no.valor}")
-            if validarNo(no):
-                pilha.pop()
-                pilha.append(no)
-                return pilha
-            else:
-                
-                if len(no.vizinhos) > 0 :
-                    for filho in no.vizinhos:
-                        filho.pai = no
-                        next.append(filho)
-                no.visitado = True
-        # criar próximo estágio
-        if len(next) > 0:
-           pilha.append(next)
-          
-        
-def validarNo(noAtual):
-    if noAtual.valor == "L":
+def validarObjetivo(atual):
+    if atual.valor == 'O':
+        print('Objetivo Alcançado')
         return True
-    
-retorno = buscarObjetivo(noA)
-
-def definirCaminho(retorno):
-    objetivo = retorno[-1]
-    caminho = []
-    while objetivo is not None:
-        caminho.append(objetivo.valor)
-        objetivo = objetivo.pai
-    return reversed(caminho)
-
-caminho = definirCaminho(retorno)
 
 
-for no in caminho:
-    print(no, end='')
-print('---')
-#printPilha(retorno)
 
-# inicio = 'A'
-# caminho = []
-# fim = noO
 
-# controle = False
-# while controle != True:
-#     caminho.append(fim)
-    
-#     if fim.valor == inicio:
-#         controle = True
-#     fim = fim.pai
-# for posicao in reversed(caminho):
-#     print(posicao.valor, end=" -> ")
+atual = noA
+
+pilha = [noA]
+
+while True:
+
+    if not pilha[0].status != Status.BLOQUEADO:
+        print('Objetivo não alcançado')
+        break
+    elif not noA.continuarVisitas() and atual.valor == 'A':
+        for no in No.NOS:
+            no.visitas = 0
+
+    if atual.status == Status.NAO_VISITADO:
+        print(atual.valor, '--' , atual.status )
+        if validarObjetivo(atual):
+            break
+        atual.status = Status.VISITADO
+        if atual.pai is not None:
+            atual = atual.pai
+    else:
+        print(atual.valor, '--' , atual.status )
+        # Verificar se apesar de não ser o alvo
+        # Possui vizinhos
+        if len(atual.vizinhos) == 0:
+            atual.status = Status.BLOQUEADO
+            anterior = atual
+            atual = atual.pai
+            continue
+        
+        # Voltar
+        if atual.status == Status.BLOQUEADO:
+            print(atual.valor, '--' , atual.status, '--', atual.visitas )
+            anterior = atual
+            atual = atual.pai
+
+        vizinho_nao_visitado = False
+        vizinho_a_explorar = False
+        numero_bloqueados = 0
+
+        if atual.status == Status.VISITADO:
+        # Acessar vizinhos não visitados
+            for vizinho in atual.vizinhos:
+                if vizinho.status == Status.NAO_VISITADO:
+                    vizinho_nao_visitado = True
+                    vizinho_a_explorar = True
+                    atual.visitas += 1
+                    atual = vizinho
+                    break
+            
+            # Se os Nós já foram visitados
+            if not vizinho_nao_visitado:
+                if atual.continuarVisitas():
+                    for vizinho in atual.vizinhos:
+                        if vizinho.continuarVisitas():
+                            vizinho_a_explorar = True
+                            vizinho_nao_visitado = True
+                            atual.visitas += 1
+                            atual = vizinho
+                            break
+            
+        
+        
+        # subir na hierarquia + Condição de parada       
+        if not vizinho_nao_visitado or not vizinho_a_explorar:
+           if atual.pai is not None:
+                atual = atual.pai
+        
+
+        
+     
+
 

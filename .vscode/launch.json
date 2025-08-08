@@ -5,7 +5,7 @@
       "name": "Python: Module",
       "type": "debugpy",
       "request": "launch",
-      "module": "simulation7_bfs.execBFS",
+      "module": "arvoreBFS.main",
       "cwd": "C:/Users/INTEL/Desktop/IR-SIM",
       "console": "integratedTerminal"
     }
