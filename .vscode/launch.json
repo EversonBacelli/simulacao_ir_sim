@@ -1,13 +1,12 @@
 {
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "Python: Module",
-      "type": "debugpy",
-      "request": "launch",
-      "module": "arvoreBFS.main",
-      "cwd": "C:/Users/INTEL/Desktop/IR-SIM",
-      "console": "integratedTerminal"
-    }
-  ]
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Executar arvoreBFS",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/arvoreBFS/main.py",
+            "console": "integratedTerminal"
+        }
+    ]
 }

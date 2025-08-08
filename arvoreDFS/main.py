@@ -2,48 +2,85 @@ from no import No
 import copy
 
 # Nós
-noC = No(4, [])
-noD = No(3, [])
+from no import No, Status
+import copy
 
-noF = No(1, [])
-noB = No(5, [noC, noD, noF])
-noG = No(8, [])
-noE = No(2, [noF, noG])
-noA = No(10, [noB, noE])
+# Construindo a árvore
+noA = No("A", [])
+noB = No("B", [])
+noC = No("C", [])
+noD = No("D", [])
+noE = No("E", [])
+noF = No("F", [])
+noG = No("G", [])
+noH = No("H", [])
+noI = No("I", [])
+noJ = No("J", [])
+noK = No("K", [])
+noL = No("L", [])
+noM = No("M", [])
+noN = No("N", [])
+noO = No("O", [])
 
-pilha = [noA]
+noA.incluirVizinhos([noB, noC])
+noB.pai = noA
+noC.pai = noA
+noB.incluirVizinhos([noD, noE])
+noD.pai = noB
+noE.pai = noB
+noC.incluirVizinhos([noF, noG])
+noF.pai = noC
+noG.pai = noC
+noD.incluirVizinhos([noH, noI])
+noH.pai = noD
+noI.pai = noD
+noE.incluirVizinhos([noJ, noK])
+noJ.pai = noE
+noK.pai = noE
+noF.incluirVizinhos([noL, noM])
+noL.pai = noF
+noM.pai = noF
+noG.incluirVizinhos([noN, noO])
+noN.pai = noG
+noO.pai = noG
 
-def arvore_dfs(pilha):
-    # print(pilha[-1].valor)
-    pilha[-1].visitado = True
+def validarNo(no):
+    if no.valor == "O":
+        return True
+    return False
 
-    if pilha[-1].valor == 8:
-        novaPilha = copy.deepcopy(pilha)
-        return novaPilha
+atual = noA
+numeroVisitas = 0
+
+
+while True:
+    
+    if atual.status == Status.NAO_VISITADO:
+        #print(atual.valor)
+        atual.status = Status.VISITADO
+        numeroVisitas += 1
+        if validarNo(atual):
+            print(f"Encontrado: {atual.valor}")
+            break
+        if len(No.NOS) == numeroVisitas:
+            print("Objetivo não encontrado")
     else:
-        if len(pilha[-1].vizinhos) == pilha[-1].numeroVisitas:
-            pilha.pop()
-            if pilha:  # Precisa checar se ainda há elementos
-                return arvore_dfs(pilha)
-            else:
-                return None
-        else:
-            return buscarFilhos(pilha)
+        print(atual.valor)
 
-def buscarFilhos(pilha):
-    vizinhos = pilha[-1].vizinhos
-    for vizinho in vizinhos:
-        if not vizinho.visitado:
-            pilha[-1].numeroVisitas += 1
-            pilha.append(vizinho)
-            return arvore_dfs(pilha)
-    return arvore_dfs(pilha)  # Se todos já foram visitados, tenta continuar
+        nos_a_visitar = False
+        for vizinho in atual.vizinhos:
+            if vizinho.status == Status.NAO_VISITADO:
+                nos_a_visitar = True
+                atual = vizinho
+                break
+    
+    if atual.pai is not None and not nos_a_visitar:
+        atual = atual.pai
 
-# Executar a busca
-resultado = arvore_dfs(pilha)
+        
 
-if resultado:
-    print("\nCaminho até o objetivo:")
-    print([no.valor for no in resultado])
-else:
-    print("Objetivo não encontrado")
+            
+
+   
+
+

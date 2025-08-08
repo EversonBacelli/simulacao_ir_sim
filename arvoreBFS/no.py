@@ -24,6 +24,5 @@ class No:
 class Status(Enum):
     NAO_VISITADO = 1
     VISITADO = 2
-    EXPLORADO = 3
-    BLOQUEADO = 4
+    BLOQUEADO = 3
     
