@@ -1,9 +1,9 @@
 from .matriz_obstaculos import gerar_matriz_obstaculos_invertida
-
+from enum import Enum
 
 class No:
     matriz = gerar_matriz_obstaculos_invertida()
-    filhos = []
+    NOS = []
     
     def __init__(self, valor, linha, coluna ):
         if valor == "X":
@@ -11,10 +11,12 @@ class No:
         
         self.valor = valor
         self.vizinhos = self.incluirVizinhos(linha, coluna)
-        self.visitado = False
+        self.status = Status.NAO_VISITADO
         self.posicao = [linha, coluna]
         self.pai = None
         self.equivalente = [coluna, 49 - linha]
+        self.visitas = 0
+        No.NOS.append(self)
             
     def validarVizinho(self, linha, coluna):
         if linha < 51 and linha > 0 and coluna > 0 and coluna < 51 :
@@ -48,8 +50,29 @@ class No:
         for filho in listaPotenciaisFilhos:
             if filho:
                 vizinhos.append(filho)
-         
         return vizinhos
     
+    def continuarVisitas(self):
+        if len(self.vizinhos) == self.visitas:
+            return False
+        else:
+            return True
+    def incluirPai(self, pai):
+        if pai.posicao in self.vizinhos:
+            self.vizinhos.remove(pai.posicao)
+        self.pai = pai
+
+
+    def retirarVizinhosNulos():
+        for linha in No.matriz:
+            for no in linha:
+                if no is not None:
+                    for vizinho_pos in no.vizinhos:
+                        vizinho = No.matriz[vizinho_pos[0]][vizinho_pos[1]]
+                        if vizinho is not None:
+                            no.vizinhos.remove(vizinho_pos)
    
-        
+class Status(Enum):
+    NAO_VISITADO = 1
+    VISITADO = 2
+    BLOQUEADO = 3
