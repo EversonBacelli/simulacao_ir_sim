@@ -4,7 +4,7 @@ from enum import Enum
 class No:
     matriz = gerar_matriz_obstaculos_invertida()
     NOS = []
-    
+    lista_de_vizinhos = []
     def __init__(self, valor, linha, coluna ):
         if valor == "X":
             raise ValueError("Não é possível criar um nó em um obstáculo")
@@ -48,7 +48,7 @@ class No:
         listaPotenciaisFilhos = [vd, ve, vb, vc]
         vizinhos = []
         for filho in listaPotenciaisFilhos:
-            if filho:
+            if filho != False:
                 vizinhos.append(filho)
         return vizinhos
     
@@ -69,7 +69,7 @@ class No:
                 if no is not None:
                     for vizinho_pos in no.vizinhos:
                         vizinho = No.matriz[vizinho_pos[0]][vizinho_pos[1]]
-                        if vizinho is not None:
+                        if vizinho is None:
                             no.vizinhos.remove(vizinho_pos)
    
 class Status(Enum):

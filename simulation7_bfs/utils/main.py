@@ -7,12 +7,12 @@ No.matriz = gerarArvore(No.matriz)
 matriz = No.matriz
 
 
-
+m = matriz[45][45]
 
 
 def validarObjetivo(atual, objetivo):
     if atual.posicao == objetivo.posicao:
-        print('Objetivo Alcançado')
+        print('Objetivo Atingido')
         return True
 
 # Buscar vizinhos - descer na hierarquia da árvore
@@ -52,7 +52,10 @@ def consultarVizinhos(vizinho_nao_visitado, vizinho_a_explorar, no_resp):
     return vizinho_nao_visitado, vizinho_a_explorar, no_resp
 
 def algoritmoBFS(no_inicial, no_final):
+    m = matriz[45][45]
+    nos_visitados = []
     # Primeiro Nó
+
     inicio = matriz[no_inicial[0]][no_inicial[1]]
     atual = matriz[no_inicial[0]][no_inicial[1]]
     objetivo = matriz[no_final[0]][no_final[1]]
@@ -63,9 +66,11 @@ def algoritmoBFS(no_inicial, no_final):
     while True:
         if nos_consultados == 68:
             print('---')
+        elif atual.posicao == [45,45]:
+            print(atual.posicao, '---->', atual.vizinhos)
 
         if not atual.continuarVisitas() and atual.posicao == inicio.posicao:
-            for no in No.NOS:
+            for no in nos_visitados:
                 no.visitas = 0
             print('##### Numero de Visitados #####: ', nos_consultados)
             print('', end='')
@@ -73,7 +78,7 @@ def algoritmoBFS(no_inicial, no_final):
 
         if atual.status == Status.NAO_VISITADO:
             nos_consultados += 1
-            print(atual.posicao, '--' , atual.status, ' -- ', len(atual.vizinhos), ' x ', atual.visitas , ' ---' , atual.vizinhos)
+            print(atual.posicao, '--' , atual.status)
             if validarObjetivo(atual, objetivo):
                 break
             if len(atual.vizinhos) == 0:
@@ -82,6 +87,7 @@ def algoritmoBFS(no_inicial, no_final):
                 continue
             else:
                 atual.status = Status.VISITADO
+                nos_visitados.append(atual)
                 if atual.pai is not None:
                     atual = atual.pai
                     continue
@@ -89,7 +95,7 @@ def algoritmoBFS(no_inicial, no_final):
             print('Todos os nós foram consultados')
             break
         else:
-            print(atual.posicao, '--' , atual.status, ' -- ', len(atual.vizinhos), ' x ', atual.visitas , ' ---' , atual.vizinhos)
+            print(atual.posicao, '--' , atual.status)
 
             vizinho_nao_visitado, vizinho_a_explorar, no_resp = consultarVizinhos(False, False, atual)
             if atual.posicao != no_resp.posicao:
