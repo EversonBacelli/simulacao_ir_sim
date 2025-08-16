@@ -7,42 +7,48 @@ from simulation6_dfs.utils.goals import obter_objetivos
 from simulation6_dfs.utils.no import No
 from simulation6_dfs.utils.obstaculeValido import validarPosicao
 from simulation6_dfs.utils.matriz_obstaculos import gerar_matriz_obstaculos_invertida
-from simulation6_dfs.utils.main import algDfs
+from simulation6_dfs.utils.main import algoritmoDFS
 from simulation6_dfs.utils.no import No
+from simulation6_dfs.utils.arvore import gerarArvore
 
 matriz =  gerar_matriz_obstaculos_invertida()
 goals = obter_objetivos()
+No.matriz = gerarArvore(matriz)
 m = No.matriz
 
 
-env = irsim.make('/simulation6_dfs/robot_world.yaml')
-controle = False
-collision = 0
-arrived = 0
+# env = irsim.make('/simulation6_dfs/robot_world.yaml')
+# controle = False
+# collision = 0
+# arrived = 0
 
 
 
-env = algDfs([45,45], goals[0], env )  # Calcula o caminho inicial
+pilha = algoritmoDFS([45,45], [4,4], m )  # Calcula o caminho inicial
 
-# Define o primeiro objetivo antes do loop
-while True:
-    env.step()
+for no in pilha:
+    print(no.posicao)
+
+
+# # Define o primeiro objetivo antes do loop
+# while True:
+#     env.step()
     
-    if env.status == "Arrived":
-        if len(goals) > 1:
-             linha = goals[0][0]
-             coluna = goals[0][1]
+#     if env.status == "Arrived":
+#         if len(goals) > 1:
+#              linha = goals[0][0]
+#              coluna = goals[0][1]
             
              
-             goals.pop(0)
-             obj = goals[0]
-             #equivalente = m[goals[0][0]][goals[0][1]].equivalente
-             # env.robot.set_goal(equivalente)
-             env = algDfs([linha, coluna], obj, env)
-        else:
-            input('Aperte qualquer botão para finalizar')
-            env.end()
-    env.render()
+#              goals.pop(0)
+#              obj = goals[0]
+#              #equivalente = m[goals[0][0]][goals[0][1]].equivalente
+#              # env.robot.set_goal(equivalente)
+#              env = algDfs([linha, coluna], obj, env)
+#         else:
+#             input('Aperte qualquer botão para finalizar')
+#             env.end()
+#     env.render()
 
     
    

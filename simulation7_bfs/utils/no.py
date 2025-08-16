@@ -34,10 +34,10 @@ class No:
         return v
 
     def validarPosicao(self, linha, coluna):
-        for ramo in self.filhos:
-            if ramo == [linha, coluna]:
-                return False
-        self.filhos.append([linha, coluna]) 
+        # for ramo in No.lista_de_vizinhos:
+        #     if ramo == [linha, coluna]:
+        #         return False
+        # No.lista_de_vizinhos.append([linha, coluna]) 
         return True
 
     def incluirVizinhos(self, linha, coluna):

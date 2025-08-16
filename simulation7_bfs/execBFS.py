@@ -22,19 +22,10 @@ no_inicial = m[45][45]
 
 No.retirarVizinhosNulos()
 
-   
 
-# for linha in m:
-#     for no in linha:
-#         if no is not None:
-#            print(no.posicao, '--', no.vizinhos, '-----' , len(no.vizinhos))
-
-# for l in No.lista_de_vizinhos:
-#     print(l)
-
-
-algoritmoBFS([45,45], [4,4])  
-#print(m[46][45].posicao, '---->', m[46][45].vizinhos, '---' ,len(m[46][45].vizinhos))
+lista = algoritmoBFS([45,45], [4,4], m)  
+for no in lista:
+    print(no.posicao)
 
 
 # env = irsim.make('/simulation7_bfs/robot_world.yaml')
