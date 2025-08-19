@@ -7,26 +7,66 @@ from simulation8_motion.utils.goals import obter_objetivos
 
 from simulation8_motion.utils.obstaculeValido import validarPosicao
 from simulation8_motion.utils.matriz_obstaculos import gerar_matriz_obstaculos_invertida
-from simulation8_motion.utils.no import No
+from simulation8_motion.utils.no import No, Status
 from simulation8_motion.utils.arvore import gerarArvore, printarArvore
 from simulation8_motion.utils.main import menorCaminho
+from simulation8_motion.utils.algDFS import algoritmoDFS
+from simulation8_motion.utils.algBFS import algoritmoBFS
 
 matriz =  gerar_matriz_obstaculos_invertida()
 No.matriz = gerarArvore(matriz)
+m = No.matriz
 goals = obter_objetivos()
 
 
-m = No.matriz
-no_inicial = m[45][45]
-# print(no_inicial.posicao, '--', no_inicial.vizinhos)
-
-No.retirarVizinhosNulos()
 
 
-caminho = menorCaminho([45,45], [4,4], m)  
 
-for no in caminho:
-    print(no.posicao)
+# exec DFS
+pilhaDFS = algoritmoDFS([45,45], [4,4], m )  # Calcula o caminho inicial
+
+# cont = 0
+# for no in pilhaDFS:
+#      print(cont , '--' , no.posicao)
+#      cont += 1
+
+# Resetando
+for linha in m:
+    for no in linha:
+        if no is not None:
+            no.status = Status.NAO_VISITADO
+
+
+# # pilhaBFS = algoritmoBFS([45,45], [4,4], m)  
+
+obj = [4,4]
+obj_atingido = False
+# caminho via DFS
+visitados = [pilhaDFS[0]]
+
+while True:
+    topo = pilhaDFS[0]
+    proximo = pilhaDFS[1]
+    visitados.append(proximo)
+
+    caminho = menorCaminho(topo.posicao, proximo.posicao, m)  
+    print(f'De {topo.posicao} até {proximo.posicao} ', end=' ')
+    for no in caminho:
+        print(no.posicao, end=' --> ')
+        if no.posicao == obj:
+            obj_atingido = True
+            break
+    print('')
+    if obj_atingido:
+        print('Objetivo alcançado: ')
+        break
+    elif len(pilhaDFS) == 0:
+        print('Objetivo não encontrado')
+        break
+    else:
+        for no in visitados:
+            no.status = Status.NAO_VISITADO
+        pilhaDFS.pop(0)
 
 
 # env = irsim.make('/simulation7_bfs/robot_world.yaml')

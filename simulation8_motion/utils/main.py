@@ -1,6 +1,12 @@
 import copy
 from .no import No, Status
 
+from simulation8_motion.utils.matriz_obstaculos import gerar_matriz_obstaculos_invertida
+from simulation8_motion.utils.arvore import gerarArvore, printarArvore
+
+m =  gerar_matriz_obstaculos_invertida()
+No.matriz = gerarArvore(m)
+# matriz = No.matriz
 
 def validarObjetivo(atual, objetivo):
     if atual.posicao == objetivo.posicao:
@@ -27,12 +33,15 @@ def menorCaminho(pInicio, pDestino, matriz):
                 caminho = obterCaminho(no, inicio)
                 return caminho
             else: 
-                if len(no.vizinhos) > 0 and no.status == Status.NAO_VISITADO : 
+                if len(no.vizinhos) > 0 and no.status == Status.NAO_VISITADO: 
                     for vizinho_pos in no.vizinhos:
-                        if no.pai != matriz[vizinho_pos[0]][vizinho_pos[1]]:
-                            matriz[vizinho_pos[0]][vizinho_pos[1]].pai = no
-                            next.append(matriz[vizinho_pos[0]][vizinho_pos[1]])
+                        vizinho = matriz[vizinho_pos[0]][vizinho_pos[1]]
+                        if vizinho is not None:
+                            if no.pai != vizinho:
+                                matriz[vizinho_pos[0]][vizinho_pos[1]].pai = no
+                                next.append(matriz[vizinho_pos[0]][vizinho_pos[1]])
                 no.status = Status.VISITADO
+                        
 
         if len(next) > 0:
             pilha.append(next)
