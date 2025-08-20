@@ -1,12 +1,8 @@
 import copy
 from .no import No, Status
-
 from simulation8_motion.utils.matriz_obstaculos import gerar_matriz_obstaculos_invertida
 from simulation8_motion.utils.arvore import gerarArvore, printarArvore
 
-m =  gerar_matriz_obstaculos_invertida()
-No.matriz = gerarArvore(m)
-# matriz = No.matriz
 
 def validarObjetivo(atual, objetivo):
     if atual.posicao == objetivo.posicao:
@@ -63,17 +59,7 @@ def obterCaminho(no, inicio):
                 no = no.pai
     return caminho
 
-# Exemplo de uso com coordenadas iniciais e finais
-# def algoritmoBFS(origem, destino, env):
-    
 
-#     for linha in matriz:
-#         for no in linha:
-#             if no is not None:
-#                 no.visitado = False
-#                 no.pai = None
-
-#     return
 
 
 

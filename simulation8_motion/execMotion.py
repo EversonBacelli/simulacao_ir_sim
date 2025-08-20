@@ -1,5 +1,5 @@
 import irsim
-import time
+import time, os, psutil
 import numpy as np
 import random
 import math
@@ -18,55 +18,121 @@ No.matriz = gerarArvore(matriz)
 m = No.matriz
 goals = obter_objetivos()
 
+No.retirarVizinhosNulos()
+
+def motionRobot(objetivo, listaDeNos, m):
+    obj = objetivo
+    atual = [listaDeNos[0]]
+    objetivo_atingido = False
+    nos = []
+
+    while True:
+        # print(len(listaDeNos))
+        atual = listaDeNos[0]
+        proximo = listaDeNos[1]
+
+        # validar posicao
+        if atual.posicao == obj:
+            nos.append(atual)
+            return nos
+        elif len(listaDeNos) > 0:
+            posicaoInicial = atual.posicao 
+            posicaoFinal = proximo.posicao  
+            caminho = menorCaminho(posicaoInicial, posicaoFinal , m)
+            for no in caminho[1:]:
+                nos.append(no)
+            listaDeNos.pop(0)
+            for item in nos:
+                item.status = Status.NAO_VISITADO
+        else: 
+            print('Objetivo Não encontrado')
 
 
 
 
-# exec DFS
+processo = psutil.Process(os.getpid())
+inicioDFS = time.time()
+inicioProcess = time.process_time()
+# # exec DFS
 pilhaDFS = algoritmoDFS([45,45], [4,4], m )  # Calcula o caminho inicial
+m = No.resetMatriz(m)
+fimDFS = time.time()
 
-# cont = 0
-# for no in pilhaDFS:
-#      print(cont , '--' , no.posicao)
-#      cont += 1
+fimProcess = time.process_time()
+
+
+execDFSinicio = time.time()
+execProcessInicio = time.process_time()
+nos = motionRobot([4, 4], pilhaDFS, m)
+execDFSfim = time.time()
+execProcessFim = time.process_time()
+
+timeDFS = f'{fimDFS - inicioDFS:.5f}'
+execDFS = f'{execDFSfim - execDFSinicio:.5f}'
+memoria = processo.memory_info().rss / 1024**2
+print('-----Estatísticas DFS --------------------------------------------')
+print(f'Identificação dos Nós: {timeDFS} segundos')
+print(f'Tempo de processamento na definição dos nós: {fimProcess - inicioProcess:.5f} segundos')
+print(f'Tempo de busca de um objetivo com algoritmo DFS: {execDFS} segundos')
+print(f'Tempo de uso do processador na busca de objetivo: {execProcessFim - execProcessInicio:.5f} segundos')
+print(f'Tempo total de ciclo DFS: {execDFSfim - inicioDFS} segundos')
+print(f'Consumo de memória RAM: {memoria:.2f} em MB')
+print(f'Número de Nós consultados: ' , len(nos))
+print('____________________________________________________________')
 
 # Resetando
-for linha in m:
-    for no in linha:
-        if no is not None:
-            no.status = Status.NAO_VISITADO
+m = No.resetMatriz(m)
+
+# lista_de_vizinhos = set()
+
+# # Obter Arvore
+# for linha in m:
+#     for no in linha:
+#         if no is not None:
+#             for v in no.vizinhos[:]:  # cópia para poder remover
+#                 vizinho_tuple = (v[0], v[1])
+#                 if vizinho_tuple in lista_de_vizinhos and len(no.vizinhos) > 1:
+#                     no.vizinhos.remove(v)
+#                 else:
+#                     lista_de_vizinhos.add(vizinho_tuple)
 
 
-# # pilhaBFS = algoritmoBFS([45,45], [4,4], m)  
+# inicioBFS = time.time()
+# BFS = algoritmoBFS([45,45], m)  
 
-obj = [4,4]
-obj_atingido = False
-# caminho via DFS
-visitados = [pilhaDFS[0]]
 
-while True:
-    topo = pilhaDFS[0]
-    proximo = pilhaDFS[1]
-    visitados.append(proximo)
 
-    caminho = menorCaminho(topo.posicao, proximo.posicao, m)  
-    print(f'De {topo.posicao} até {proximo.posicao} ', end=' ')
-    for no in caminho:
-        print(no.posicao, end=' --> ')
-        if no.posicao == obj:
-            obj_atingido = True
-            break
-    print('')
-    if obj_atingido:
-        print('Objetivo alcançado: ')
-        break
-    elif len(pilhaDFS) == 0:
-        print('Objetivo não encontrado')
-        break
-    else:
-        for no in visitados:
-            no.status = Status.NAO_VISITADO
-        pilhaDFS.pop(0)
+
+
+# fimBFS = time.time()
+# timeBFS = f'{fimBFS - inicioBFS:.5f}'
+
+# m = No.resetMatriz(m)
+# execBFSinicio = time.time()
+# contBFS = motionRobot([4,4], BFS, m)
+# execBFSfim = time.time()
+# execBFS = f'{execBFSfim - execBFSinicio:.5f}'
+
+
+# print()
+# print(f'Tempo de execução do algoritmo BFS: {timeBFS} segundos')
+# print(f'Tempo de execução do algoritmo BFS: {execBFS} segundos')
+# print(f'Tempo total de ciclo BFS: {execBFSfim - inicioBFS}')
+# print(f'Número de passos BFS: ' , contBFS)
+
+
+
+
+
+# print(f'Tempo de execução do algoritmo BFS: {fimBFS - inicioBFS:.5f} segundos')
+
+
+
+
+
+
+
+
 
 
 # env = irsim.make('/simulation7_bfs/robot_world.yaml')

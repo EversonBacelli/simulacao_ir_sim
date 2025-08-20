@@ -19,10 +19,10 @@ def algoritmoDFS(origem, destino, matriz):
     while pilha:
         # topo da pilha
         atual = pilha[-1] 
-        atual.visitado = True
+        atual.status = Status.VISITADO
  
         # Valida se o objetivo foi encontrado
-        if consultados == 835:
+        if len(caminho) == 835:
             return caminho
 
         # Explorar Vizinhos

@@ -4,7 +4,7 @@ from enum import Enum
 class No:
     matriz = gerar_matriz_obstaculos_invertida()
     NOS = []
-    lista_de_vizinhos = []
+    lista_de_vizinhos = set()
     def __init__(self, valor, linha, coluna ):
         if valor == "X":
             raise ValueError("Não é possível criar um nó em um obstáculo")
@@ -34,10 +34,10 @@ class No:
         return v
 
     def validarPosicao(self, linha, coluna):
-        # for ramo in No.lista_de_vizinhos:
-        #     if ramo == [linha, coluna]:
-        #         return False
-        # No.lista_de_vizinhos.append([linha, coluna]) 
+        for ramo in No.lista_de_vizinhos :
+            if ramo[0] == linha and ramo[1] == coluna:
+                return False
+        No.lista_de_vizinhos.append([linha, coluna]) 
         return True
 
     def incluirVizinhos(self, linha, coluna):
@@ -71,6 +71,14 @@ class No:
                         vizinho = No.matriz[vizinho_pos[0]][vizinho_pos[1]]
                         if vizinho is None:
                             no.vizinhos.remove(vizinho_pos)
+    
+    def resetMatriz(m):
+        for linha in m:
+            for no in linha:
+                if no is not None:
+                    no.status = Status.NAO_VISITADO
+                    no.pai = None
+        return m
    
 class Status(Enum):
     NAO_VISITADO = 1
