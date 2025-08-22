@@ -5,7 +5,7 @@
             "name": "Python: Executar arvoreBFS",
             "type": "python",
             "request": "launch",
-            "module": "simulation8_motion.execMotion",
+            "module": "simulation8_motionBFS.execMotion",
             "console": "integratedTerminal",
             "env": {
                 "PYTHONPATH": "${workspaceFolder}"

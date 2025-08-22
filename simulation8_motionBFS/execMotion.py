@@ -1,23 +1,20 @@
 import irsim
-import time, os, psutil
+import time, os, psutil, tracemalloc
 import numpy as np
 import random
 import math
-from simulation8_motion.utils.goals import obter_objetivos
-
-from simulation8_motion.utils.obstaculeValido import validarPosicao
-from simulation8_motion.utils.matriz_obstaculos import gerar_matriz_obstaculos_invertida
-from simulation8_motion.utils.no import No, Status
-from simulation8_motion.utils.arvore import gerarArvore, printarArvore
-from simulation8_motion.utils.main import menorCaminho
-from simulation8_motion.utils.algDFS import algoritmoDFS
-from simulation8_motion.utils.algBFS import algoritmoBFS
+from simulation8_motionBFS.utils.goals import obter_objetivos
+from simulation8_motionBFS.utils.obstaculeValido import validarPosicao
+from simulation8_motionBFS.utils.matriz_obstaculos import gerar_matriz_obstaculos_invertida
+from simulation8_motionBFS.utils.no import No, Status
+from simulation8_motionBFS.utils.arvore import gerarArvore, printarArvore
+from simulation8_motionBFS.utils.main import menorCaminho
+from simulation8_motionBFS.utils.algBFS import algoritmoBFS
 
 matriz =  gerar_matriz_obstaculos_invertida()
 No.matriz = gerarArvore(matriz)
 m = No.matriz
 goals = obter_objetivos()
-
 No.retirarVizinhosNulos()
 
 def motionRobot(objetivo, listaDeNos, m):
@@ -39,77 +36,64 @@ def motionRobot(objetivo, listaDeNos, m):
             posicaoInicial = atual.posicao 
             posicaoFinal = proximo.posicao  
             caminho = menorCaminho(posicaoInicial, posicaoFinal , m)
-            for no in caminho[1:]:
+            topo = caminho.pop()
+            for no in caminho:
                 nos.append(no)
             listaDeNos.pop(0)
             for item in nos:
                 item.status = Status.NAO_VISITADO
+                item.pai = None
+            topo.status = Status.NAO_VISITADO
+            topo.pai = None
         else: 
             print('Objetivo Não encontrado')
 
 
 
-
-processo = psutil.Process(os.getpid())
-inicioDFS = time.time()
+# Stage 1 - Algoritmo de Mapeamento do Ambiente com BFS
+processoS1 = psutil.Process(os.getpid())
+tracemalloc.start()
 inicioProcess = time.process_time()
-# # exec DFS
-pilhaDFS = algoritmoDFS([45,45], [4,4], m )  # Calcula o caminho inicial
-m = No.resetMatriz(m)
-fimDFS = time.time()
-
+inicioBFS = time.time()
+BFS = algoritmoBFS([45,45], m)  
+fimBFS = time.time()
+timeBFS = fimBFS - inicioBFS
 fimProcess = time.process_time()
+memoriaS1 = processoS1.memory_info().rss / 1024**2
+men_atual, men_pico = tracemalloc.get_traced_memory()
+men_atual_s1 = men_atual
+men_pico_s1 = men_pico
+tracemalloc.stop()
+
+# Dados
+timeBFS = fimBFS - inicioBFS
+#execDFS = execDFSfim - execDFSinicio
+#tempoDeCiclo = execDFSfim - inicioDFS
+#totalRAM = men_atual_s1 + men_atual_s2
+print(men_pico_s1 / 1024**2)
+
+print('-----Estatísticas BFS --------------------------------------------')
+print(f'Stage 1 - Algoritmo de Mapeamento com BFS: ')
+print(f'---- Tempo de processamento {timeBFS} segundos')
+print(f'---- Consumo de Memória RAM: {men_atual_s1 / 1024**2:.5f} em MB')
+print(f'---- Pico de Memória RAM: {men_pico_s1 / 1024**2:.5f} MB')
+
+#
+# for no in BFS:
+#     print(no.posicao, end=' , ')
 
 
-execDFSinicio = time.time()
-execProcessInicio = time.process_time()
-nos = motionRobot([4, 4], pilhaDFS, m)
-execDFSfim = time.time()
-execProcessFim = time.process_time()
-
-timeDFS = f'{fimDFS - inicioDFS:.5f}'
-execDFS = f'{execDFSfim - execDFSinicio:.5f}'
-memoria = processo.memory_info().rss / 1024**2
-print('-----Estatísticas DFS --------------------------------------------')
-print(f'Identificação dos Nós: {timeDFS} segundos')
-print(f'Tempo de processamento na definição dos nós: {fimProcess - inicioProcess:.5f} segundos')
-print(f'Tempo de busca de um objetivo com algoritmo DFS: {execDFS} segundos')
-print(f'Tempo de uso do processador na busca de objetivo: {execProcessFim - execProcessInicio:.5f} segundos')
-print(f'Tempo total de ciclo DFS: {execDFSfim - inicioDFS} segundos')
-print(f'Consumo de memória RAM: {memoria:.2f} em MB')
-print(f'Número de Nós consultados: ' , len(nos))
-print('____________________________________________________________')
-
-# Resetando
 m = No.resetMatriz(m)
 
-# lista_de_vizinhos = set()
+execBFSinicio = time.time()
+nos = motionRobot([4,4], BFS, m)
 
-# # Obter Arvore
-# for linha in m:
-#     for no in linha:
-#         if no is not None:
-#             for v in no.vizinhos[:]:  # cópia para poder remover
-#                 vizinho_tuple = (v[0], v[1])
-#                 if vizinho_tuple in lista_de_vizinhos and len(no.vizinhos) > 1:
-#                     no.vizinhos.remove(v)
-#                 else:
-#                     lista_de_vizinhos.add(vizinho_tuple)
+print(len(nos))
+
+# for no in nos:
+#     print(no.posicao)
 
 
-# inicioBFS = time.time()
-# BFS = algoritmoBFS([45,45], m)  
-
-
-
-
-
-# fimBFS = time.time()
-# timeBFS = f'{fimBFS - inicioBFS:.5f}'
-
-# m = No.resetMatriz(m)
-# execBFSinicio = time.time()
-# contBFS = motionRobot([4,4], BFS, m)
 # execBFSfim = time.time()
 # execBFS = f'{execBFSfim - execBFSinicio:.5f}'
 

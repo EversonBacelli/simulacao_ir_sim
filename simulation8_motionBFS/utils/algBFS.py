@@ -1,8 +1,8 @@
 import copy
 from .no import No, Status
 
-from simulation8_motion.utils.matriz_obstaculos import gerar_matriz_obstaculos_invertida
-from simulation8_motion.utils.arvore import gerarArvore, printarArvore
+from simulation8_motionBFS.utils.matriz_obstaculos import gerar_matriz_obstaculos_invertida
+from simulation8_motionBFS.utils.arvore import gerarArvore, printarArvore
 
 
 # matriz = No.matriz
