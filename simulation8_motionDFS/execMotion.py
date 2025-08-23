@@ -81,7 +81,7 @@ timeDFS = fimDFS - inicioDFS
 execDFS = execDFSfim - execDFSinicio
 tempoDeCiclo = execDFSfim - inicioDFS
 totalRAM = men_atual_s1 + men_atual_s2
-print(men_pico_s1 / 1024**2)
+
 print('-----Estatísticas DFS --------------------------------------------')
 print(f'Stage 1 - Algoritmo de Mapeamento com DFS: ')
 print(f'---- Tempo de processamento {timeDFS} segundos')
