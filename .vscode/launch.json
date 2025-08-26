@@ -2,10 +2,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Executar arvoreBFS",
+            "name": "Python: Executar arvoreDFS",
             "type": "python",
             "request": "launch",
-            "module": "simulation8_motionBFS.execMotion",
+            "module": "simulation10_motionBFS_circular_ir_sim.execMotion",
             "console": "integratedTerminal",
             "env": {
                 "PYTHONPATH": "${workspaceFolder}"
