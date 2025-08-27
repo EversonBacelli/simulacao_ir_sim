@@ -54,6 +54,7 @@ def motionRobot(objetivo, list, inicio, m):
             for no in caminho:
                 movimentacaoIR_SIM(no)
                 nos.append(no)
+                # nos = inserirNaLista(nos, no)
             listaDeNos.pop(0)
             for item in nos:
                 item.status = Status.NAO_VISITADO
@@ -79,5 +80,7 @@ def movimentacaoIR_SIM(no):
     env.render(figure_kwargs={'dpi': 100})
 
 
-
-
+def inserirNaLista(lista, no):
+    if no not in lista:
+        lista.append(no)
+    return lista
