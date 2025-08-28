@@ -39,35 +39,34 @@ inicio = [45,45]
 m = No.resetMatriz(m) # Stage 2 - Busca do Objetivo no Mapa 
 
 for go in goals:
-    # BFS = algoritmoBFS(inicio, m)  
-    m = No.resetMatriz(m) # Stage 2 - Busca do Objetivo no Mapa 
-    tracemalloc.start()
-    processoS2 = psutil.Process(os.getpid())
-    execDFSinicio = time.time()
-    execProcessInicio = time.process_time()
-    execBFSinicio = time.time()
-    nos = motionRobot(go, copy.deepcopy(BFS), inicio, m)
-    inicio = go
-    execBFSfim = time.time()
-    execProcessFim = time.process_time()
-    memoriaS2 = processoS2.memory_info().rss / 1024**2
-    men_atual, men_pico = tracemalloc.get_traced_memory()
-    men_atual_s2 = men_atual
-    men_pico_s2 = men_pico
+     # BFS = algoritmoBFS(inicio, m)  
+     m = No.resetMatriz(m) # Stage 2 - Busca do Objetivo no Mapa 
+     tracemalloc.start()
+     processoS2 = psutil.Process(os.getpid())
+     execDFSinicio = time.time()
+     execProcessInicio = time.process_time()
+     execBFSinicio = time.time()
+     nos = motionRobot(go, copy.deepcopy(BFS), inicio, m)
+     inicio = go
+     execBFSfim = time.time()
+     execProcessFim = time.process_time()
+     memoriaS2 = processoS2.memory_info().rss / 1024**2
+     men_atual, men_pico = tracemalloc.get_traced_memory()
+     men_atual_s2 = men_atual
+     men_pico_s2 = men_pico
 
-    # Dados
-    timeBFS = fimBFS - inicioBFS
-    execBFS = execBFSfim - execBFSinicio
-    tempoDeCiclo = execBFSfim - inicioBFS
-    totalRAM = men_atual_s1 + men_atual_s2
+     # Dados
+     timeBFS = fimBFS - inicioBFS
+     execBFS = execBFSfim - execBFSinicio
+     tempoDeCiclo = execBFSfim - inicioBFS
+     totalRAM = men_atual_s1 + men_atual_s2
 
-    Estatistica(nos[0], nos[-1], timeBFS, memoriaS1, men_atual_s1, execBFS, men_atual_s2, men_pico_s2, len(nos), tempoDeCiclo, totalRAM)
-    #resultado.append(no)
-    print(len(BFS))
+     Estatistica(nos[0], nos[-1], timeBFS, memoriaS1, men_atual_s1, execBFS, men_atual_s2, men_pico_s2, len(nos), tempoDeCiclo, totalRAM)
+     #resultado.append(no)
+     print(len(BFS))
 
-lista_dict = [p.__dict__ for p in Estatistica.resultado]
-json_result = json.dumps(lista_dict, ensure_ascii=False, indent=4)
-
+# lista_dict = [p.__dict__ for p in Estatistica.resultado]
+# json_result = json.dumps(lista_dict, ensure_ascii=False, indent=4)
 
 
 

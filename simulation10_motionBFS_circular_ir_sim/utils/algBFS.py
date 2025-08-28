@@ -12,7 +12,6 @@ def algoritmoBFS(pInicio, matriz):
     pilha = [inicio]
     caminho = [inicio]
 
-
     # Enquanto a pilha não estiver vazia
     while pilha:
         atual = pilha[-1]
@@ -45,6 +44,6 @@ def algoritmoBFS(pInicio, matriz):
 
 
 def validarNo(caminho):
-    if len(caminho) == 835:
+    if len(caminho) == 1150 :
         return True
     

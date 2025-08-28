@@ -5,6 +5,7 @@ class No:
     matriz = gerar_matriz_obstaculos_invertida()
     NOS = []
     lista_de_vizinhos = set()
+    NOS_ACESSIVEIS = 0
     def __init__(self, valor, linha, coluna ):
         if valor == "X":
             raise ValueError("Não é possível criar um nó em um obstáculo")
@@ -17,6 +18,8 @@ class No:
         self.equivalente = [coluna, 49 - linha]
         self.visitas = 0
         No.NOS.append(self)
+        if self.valor != "X":
+            No.NOS_ACESSIVEIS += 1
             
     def validarVizinho(self, linha, coluna):
         if linha < 51 and linha > 0 and coluna > 0 and coluna < 51 :

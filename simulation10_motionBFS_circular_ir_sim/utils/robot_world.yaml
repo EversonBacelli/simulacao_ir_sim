@@ -84,7 +84,7 @@ obstacle:
     static: True
 
    # Vertical
-  - shape: {name: 'rectangle', length: 5.0, width: 41.0}
+  - shape: {name: 'rectangle', length: 5.3, width: 41.0}
     state: [10.5, 22.0, 0]
     unobstructed: False
     plot: {color: 'black'}
@@ -97,15 +97,15 @@ obstacle:
     static: True
 
   # Horizontal Inferior
-  - shape: {name: 'rectangle', length: 30.0, width: 5.0}
-    state: [28.0, 12.5, 0]
+  - shape: {name: 'rectangle', length: 30.4, width: 6.0}
+    state: [28.3, 12.7, 0]
     unobstructed: False
     plot: {color: 'green'}
     static: True
 
   #Horizontal Meio
-  - shape: {name: 'rectangle', length: 30.0, width: 10.0}
-    state: [33.0, 25.0, 0]
+  - shape: {name: 'rectangle', length: 31.0, width: 10.5}
+    state: [33.0, 25.3, 0]
     unobstructed: False
     plot: {color: 'black'}
     static: True

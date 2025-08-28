@@ -16,20 +16,14 @@ def gerar_matriz_obstaculos_invertida():
 
     # Bordas
     marcar_retangulo(25.0, 1.0, 50.0, 1.0)     # superior
-    marcar_retangulo(25.0, 49.0, 50.0, 1.0)    # inferior
+    marcar_retangulo(25.0, 49.0, 50.0, 2.0)    # inferior
     marcar_retangulo(2.0, 25.0, 2.0, 50.0)     # esquerda
     marcar_retangulo(49.0, 25.0, 0.5, 50.0)    # direita
 
-     # Bordas
-    #marcar_retangulo(25.0, 1.0, 50.0, 4.0)     # superior
-    #marcar_retangulo(25.0, 49.0, 50.0, 4.0)    # inferior
-    #marcar_retangulo(1.0, 25.0, 4.0, 50.0)     # esquerda
-    #marcar_retangulo(49.0, 25.0, 4.0, 50.0)    # direita
-
     # Blocos internos
-    marcar_retangulo(12.0, 23.0, 7.0, 41.0)    # vertical
-    marcar_retangulo(30.0, 40.0, 31.0, 7.0)    # horizontal SUPERIOR
+    marcar_retangulo(11.0, 23.0, 7.0, 41.0)    # vertical
+    marcar_retangulo(29.0, 40.0, 30.0, 6.5)    # horizontal SUPERIOR
     marcar_retangulo(28.0, 13.5, 33.0, 6.0)    # horizontal INFERIOR
     marcar_retangulo(33.0, 25.5, 32.0, 11.0)   # horizontal MEIO
-    
+
     return matriz

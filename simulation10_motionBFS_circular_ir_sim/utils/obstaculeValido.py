@@ -5,8 +5,8 @@ from simulation10_motionBFS_circular_ir_sim.utils.matriz_obstaculos import gerar
 matriz = gerar_matriz_obstaculos_invertida()
 
 def gerarValoresAleatorios():
-    x = random.randint(3, 47)
-    y = random.randint(3, 47)
+    x = random.randint(2, 48)
+    y = random.randint(2, 48)
     return x, y
 
 def validarPosicao():
