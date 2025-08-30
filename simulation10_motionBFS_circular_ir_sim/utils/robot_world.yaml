@@ -44,7 +44,7 @@ robot:
     goal: [16, 6, 0]
     goal_threshold: 0.1
     vel_max: [3, 3]
-    vel_min: [-5, -5]
+    vel_min: [-3, -3]
     behavior: {name: 'dash'}
     plot:
       show_trajectory: True
@@ -59,8 +59,9 @@ robot:
         alpha: 0.3
 
 obstacle:
+    # baixo
   - shape: {name: 'rectangle', length: 50.0, width: 2.0}
-    state: [25.0, 1.0, 0]
+    state: [25.0, 0.5, 0]
     unobstructed: False
     plot: {color: 'black'}
     static: True
@@ -71,6 +72,7 @@ obstacle:
     plot: {color: 'black'}
     static: True
 
+    # esquerda
   - shape: {name: 'rectangle', length: 2.0, width: 50.0}
     state: [1.0, 25.0, 0]
     unobstructed: False
@@ -78,7 +80,7 @@ obstacle:
     static: True
 
   - shape: {name: 'rectangle', length: 2.0, width: 50.0}
-    state: [49.0, 25.0, 0]
+    state: [49.5, 25.0, 0]
     unobstructed: False
     plot: {color: 'black'}
     static: True
@@ -90,22 +92,22 @@ obstacle:
     plot: {color: 'black'}
     static: True
 
-  - shape: {name: 'rectangle', length: 31.0, width: 6.0}
+  - shape: {name: 'rectangle', length: 30.5, width: 6.0}
     state: [28.0, 39.5, 0]
     unobstructed: False
     plot: {color: 'black'}
     static: True
 
   # Horizontal Inferior
-  - shape: {name: 'rectangle', length: 30.4, width: 6.0}
+  - shape: {name: 'rectangle', length: 30.2, width: 5.7}
     state: [28.3, 12.7, 0]
     unobstructed: False
     plot: {color: 'green'}
     static: True
 
   #Horizontal Meio
-  - shape: {name: 'rectangle', length: 31.0, width: 10.5}
-    state: [33.0, 25.3, 0]
+  - shape: {name: 'rectangle', length: 30.5, width: 10.5}
+    state: [34.0, 25.5, 0]
     unobstructed: False
     plot: {color: 'black'}
     static: True

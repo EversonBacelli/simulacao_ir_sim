@@ -44,6 +44,6 @@ def algoritmoBFS(pInicio, matriz):
 
 
 def validarNo(caminho):
-    if len(caminho) == 1150 :
+    if len(caminho) == 1180 :
         return True
     

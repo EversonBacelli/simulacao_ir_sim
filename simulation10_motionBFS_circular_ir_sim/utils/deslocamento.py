@@ -40,7 +40,7 @@ def motionRobot(objetivo, list, inicio, m):
         # validar posicao
         if atual.posicao == obj:
             movimentacaoIR_SIM(atual)
-            input("Objetivo Alcançado:  ")
+            print("Objetivo Alcançado: ", end=' ')
             print(atual.posicao)
             # env.end()
             nos.append(atual)

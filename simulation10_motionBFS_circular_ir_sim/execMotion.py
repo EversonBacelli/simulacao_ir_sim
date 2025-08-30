@@ -19,13 +19,13 @@ goals = obter_objetivos()
 No.retirarVizinhosNulos()
 
 
-
+inicio = [45,45]
 # Stage 1 - Algoritmo de Mapeamento do Ambiente com BFS
 processoS1 = psutil.Process(os.getpid())
 tracemalloc.start()
 inicioProcess = time.process_time()
 inicioBFS = time.time()
-BFS = algoritmoBFS([45, 45], m)  
+BFS = algoritmoBFS(inicio, m)  
 fimBFS = time.time()
 timeBFS = fimBFS - inicioBFS
 fimProcess = time.process_time()
@@ -35,7 +35,7 @@ men_atual_s1 = men_atual
 men_pico_s1 = men_pico
 tracemalloc.stop()
 
-inicio = [45,45]
+
 m = No.resetMatriz(m) # Stage 2 - Busca do Objetivo no Mapa 
 
 for go in goals:
@@ -65,6 +65,7 @@ for go in goals:
      #resultado.append(no)
      print(len(BFS))
 
+input('Aperte qualquer coisa para finalizar')
 # lista_dict = [p.__dict__ for p in Estatistica.resultado]
 # json_result = json.dumps(lista_dict, ensure_ascii=False, indent=4)
 
