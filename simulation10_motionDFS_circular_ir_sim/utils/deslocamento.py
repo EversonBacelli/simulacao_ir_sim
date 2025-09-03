@@ -1,21 +1,34 @@
+import irsim
 from simulation10_motionDFS_circular_ir_sim.utils.main import menorCaminho
 from simulation10_motionDFS_circular_ir_sim.utils.no import No, Status
 
 
+env = irsim.make('/simulation10_motionDFS_circular_ir_sim/utils/robot_world.yaml')
+controle = False
+collision = 0
+arrived = 0
+
+
+
+
 def remontarLista(pontoInicial, lista):
-    if lista[0].posicao != pontoInicial:
-        while True:
-            objeto = lista.pop(0)
-            lista.append(objeto)
-            if lista[0].posicao == pontoInicial:
-                break
+    while True:
+        objeto = lista.pop(0)
+        lista.append(objeto)
+        if lista[0].posicao == pontoInicial:
+            break
     
     return lista
 
 def motionRobot(objetivo, list, inicio, m):
     obj = objetivo
-    listaDeNos = remontarLista(inicio, list)
+    # Definir Objetivo no IR-SIM
+    definirObjetivo(obj, m)
     
+    listaDeNos = remontarLista(inicio, list)
+    eq = m[inicio[0]][inicio[1]]
+    movimentacaoIR_SIM(eq)
+
     objetivo_atingido = False
     nos = []
 
@@ -26,6 +39,10 @@ def motionRobot(objetivo, list, inicio, m):
 
         # validar posicao
         if atual.posicao == obj:
+            movimentacaoIR_SIM(atual)
+            print("Objetivo Alcançado: ", end=' ')
+            print(atual.posicao)
+            # env.end()
             nos.append(atual)
             return nos
         elif len(listaDeNos) > 0:
@@ -34,8 +51,11 @@ def motionRobot(objetivo, list, inicio, m):
             # print(posicaoInicial, '--->', posicaoFinal) 
             caminho, m = menorCaminho(posicaoInicial, posicaoFinal , m)
             topo = caminho.pop()
+            #movimentacaoIR_SIM(topo)
             for no in caminho:
+                movimentacaoIR_SIM(no)
                 nos.append(no)
+                # nos = inserirNaLista(nos, no)
             listaDeNos.pop(0)
             for item in nos:
                 item.status = Status.NAO_VISITADO
@@ -45,4 +65,23 @@ def motionRobot(objetivo, list, inicio, m):
         else: 
             print('Objetivo Não encontrado')
             break
-    
+
+def definirObjetivo(objetivo, m):
+    equivalente = m[objetivo[0]][objetivo[1]].equivalente
+    env.robot.set_goal(equivalente)
+    env.step()
+    env.render(figure_kwargs={'dpi': 100})
+
+def movimentacaoIR_SIM(no):
+    posicao = no.equivalente
+    # set robot position
+    env.robot._state[0] = posicao[0] 
+    env.robot._state[1] = posicao[1]
+    env.step()
+    env.render(figure_kwargs={'dpi': 100})
+
+
+def inserirNaLista(lista, no):
+    if no not in lista:
+        lista.append(no)
+    return lista

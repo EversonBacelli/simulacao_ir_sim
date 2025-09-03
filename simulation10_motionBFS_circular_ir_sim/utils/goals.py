@@ -14,7 +14,8 @@ def obter_objetivos():
       [39,7],
       [32,5],
       [3,3],
-      [43,5]
+      [43,5],
+      [15,3]
     ]
 
     return lista_objetivos

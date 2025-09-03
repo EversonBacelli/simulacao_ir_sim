@@ -63,12 +63,11 @@ for go in goals:
 
      Estatistica(nos[0], nos[-1], timeBFS, memoriaS1, men_atual_s1, execBFS, men_atual_s2, men_pico_s2, len(nos), tempoDeCiclo, totalRAM)
      #resultado.append(no)
-     print(len(BFS))
 
 input('Aperte qualquer coisa para finalizar')
-# lista_dict = [p.__dict__ for p in Estatistica.resultado]
-# json_result = json.dumps(lista_dict, ensure_ascii=False, indent=4)
-
+lista_dict = [p.__dict__ for p in Estatistica.resultado]
+json_result = json.dumps(lista_dict, ensure_ascii=False, indent=4)
+print(json_result)
 
 
 

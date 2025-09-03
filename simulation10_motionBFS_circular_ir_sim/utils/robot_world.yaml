@@ -106,8 +106,8 @@ obstacle:
     static: True
 
   #Horizontal Meio
-  - shape: {name: 'rectangle', length: 30.5, width: 10.5}
-    state: [34.0, 25.5, 0]
+  - shape: {name: 'rectangle', length: 30.5, width: 10.4}
+    state: [34.0, 25.3, 0]
     unobstructed: False
     plot: {color: 'black'}
     static: True

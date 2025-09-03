@@ -33,7 +33,6 @@ def menorCaminho(pInicio, pDestino, m):
                 caminho = obterCaminho(no, inicio)
                 return caminho, m
             else: 
-
                 if len(no.vizinhos) > 0 and no.status == Status.NAO_VISITADO: 
                     for vizinho_pos in no.vizinhos:
                         vizinho = m[vizinho_pos[0]][vizinho_pos[1]]
