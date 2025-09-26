@@ -1,0 +1,32 @@
+world:
+  height: 51  # the height of the world
+  width: 51  # the width of the world
+  step_time: 0.1  # 10Hz to calculate each step
+  sample_time: 0.1  # 10 Hz for render and data extraction 
+  offset: [0, 0] # the offset of the world on x and y 
+  control_mode: 'acker'  # control mode of the world, can be 'auto' or 'manual'
+  collision_mode: 'stop'  # collision mode of the world, can be 'rvo', 'none', 'static', 'dynamic'
+  plot:
+    show-title: True  # show the title of the plot
+    title: 'Robot World'  # title of the plot
+    show-axis: True  # show the axis of the plot
+    x-label: 'X'  # label of the x-axis
+    y-label: 'Y'  # label of the y-axis
+    
+robot:
+  - number: 1  # number of robots
+    kinematics: {name: 'omni'}  # kinematics of the robot, current name should be one of omni, diff, acker
+    shape: {name: 'circle', radius: 0.4}  # radius for circle shape
+    state: [1, 1, 0]  # x, y, theta, 2d position and orientation
+    goal: [23, 23, 0]  # x, y, theta, 2d position and orientation
+    behavior: {name: 'rvo'} # move toward the goal directly 
+    color: 'g' # green
+    sensors:
+        - name: 'lidar2d'
+          range_min: 1.0
+          range_max: 5
+          angle_range: 6.0
+          number: 50
+          noise: True
+          alpha: 0.2
+obstacle:
