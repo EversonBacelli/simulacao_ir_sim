@@ -4,11 +4,7 @@ import irsim
 # criate environment
 # file robot_world.yaml configures the environment
 # it contains the world, robot, and sensors configurations
-env = irsim.make('robot_world.yaml') # initialize the environment with the configuration file
-
-world = env._world # get the world object
-world.add_obstacle(type='rect', start_point=[0, 0], end_point=[10, 0.2])  # inferior
-
+env = irsim.make('lab5_world.yaml') # initialize the environment with the configuration file
 
 for i in range(1000): # run the simulation for 300 steps
 

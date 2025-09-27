@@ -24,7 +24,7 @@ for i in range(1, rows*2, 2):
 
 
 
-np.savetxt("labirinto1.txt", matriz, fmt='%d')
+np.savetxt("labirinto3.txt", matriz, fmt='%d')
 # m.run()
 
 # Imprimir matriz no console
