@@ -1,12 +1,12 @@
 # labirinto1.yaml
 world:
-  height: 50
-  width: 50
+  height: 51
+  width: 51
   step_time: 0.1
   sample_time: 0.1
   offset: [0, 0]
   control_mode: 'acker'
-  collision_mode: 'unobstructed'
+  collision_mode: 'rvo'
   plot:
     show-title: True
     title: 'Robot World'
@@ -15,10 +15,25 @@ world:
     y-label: 'Y'
 
 robot:
+  - number: 1
+    kinematics: {name: 'omni'}
+    shape: {name: 'circle', radius: 0.4}
+    state: [1, 1, 0]
+    goal: [23, 23, 0]
+    behavior: {name: 'rvo'}
+    color: 'g'
+    sensors:
+        - name: 'lidar2d'
+          range_min: 1.0
+          range_max: 5
+          angle_range: 6.0
+          number: 50
+          noise: True
+          alpha: 0.2
 
   - number: 1
     kinematics: {name: 'omni'}
-    shape: {name: 'circle', radius: 0.2}
+    shape: {name: 'circle', radius: 0.4}
     state: [20, 1, 0]
     goal: [2, 23, 0]
     behavior: {name: 'rvo'}

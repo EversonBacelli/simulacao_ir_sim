@@ -1,9 +1,9 @@
 import irsim
-from simulation10_motionBFS_circular_ir_sim.utils.main import menorCaminho
-from simulation10_motionBFS_circular_ir_sim.utils.no import No, Status
+from sim_12_lab1_BFS.utils.main import menorCaminho
+from sim_12_lab1_BFS.utils.no import No, Status
 
 
-env = irsim.make('/simulation10_motionBFS_circular_ir_sim/utils/robot_world.yaml')
+env = irsim.make('/sim_12_lab1_BFS/utils/lab1_world.yaml')
 controle = False
 collision = 0
 arrived = 0
@@ -68,12 +68,15 @@ def motionRobot(objetivo, list, inicio, m):
 
 def definirObjetivo(objetivo, m):
     equivalente = m[objetivo[0]][objetivo[1]].equivalente
+    # equivalente = m[objetivo[0]][objetivo[1]].posicao
     env.robot.set_goal(equivalente)
     env.step()
     env.render(figure_kwargs={'dpi': 100})
 
 def movimentacaoIR_SIM(no):
     posicao = no.equivalente
+    # posicao = no.posicao
+
     # set robot position
     env.robot._state[0] = posicao[0] 
     env.robot._state[1] = posicao[1]

@@ -1,36 +1,6 @@
 world:
   height: 50
   width: 50
-  step_time: 0.2
-  sample_time: 0.2
-  offset: [0, 0]
-  collision_mode: 'unobstructed'
-  control_mode: 'manual'
-
-robot:
-  - kinematics: {name: 'omni'}
-    shape: {name: 'circle', radius: 0.2}
-    state: [45, 4, 0.4]
-    goal: [16, 6, 0]
-    goal_threshold: 0.1
-    vel_max: [5, 5]
-    vel_min: [-5, -5]
-    behavior: {name: 'dash'}
-    plot:
-      show_trajectory: True
-      show_goal: True
-    sensors:
-      - name: 'lidar2d'
-        range_min: 0.5
-        range_max: 20.0
-        angle_range: 6.38
-        number: 100
-        noise: True
-        alpha: 0.3
-
-world:
-  height: 50
-  width: 50
   step_time: 0.1
   sample_time: 0.1
   offset: [0, 0]

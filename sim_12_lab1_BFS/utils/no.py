@@ -1,8 +1,8 @@
-from .matriz_obstaculos import gerar_matriz_obstaculos_invertida
+from .matriz_lab import gerarMatrizLab
 from enum import Enum
 
 class No:
-    matriz = gerar_matriz_obstaculos_invertida()
+    matriz = gerarMatrizLab()
     NOS = []
     lista_de_vizinhos = set()
     NOS_ACESSIVEIS = 0
@@ -15,22 +15,17 @@ class No:
         self.status = Status.NAO_VISITADO
         self.posicao = [linha, coluna]
         self.pai = None
-        self.equivalente = [coluna, 49 - linha]
+        self.equivalente = [coluna, 50 - linha]
         self.visitas = 0
         No.NOS.append(self)
-        if self.valor != "X":
-            No.NOS_ACESSIVEIS += 1
+
             
     def validarVizinho(self, linha, coluna):
-        if linha < 51 and linha > 0 and coluna > 0 and coluna < 51 :
-            
-            if No.matriz[linha][coluna] == '1': 
-                return False
-            else: 
-
-                return [linha, coluna]
-        else:
+        if No.matriz[linha][coluna] == 1: 
             return False
+        else: 
+            return [linha, coluna]
+        
 
     def fabricaDeVizinhos(self, novaLinha, novaColuna):
         v = self.validarVizinho(novaLinha, novaColuna)

@@ -1,7 +1,7 @@
 # labirinto1.yaml
 world:
-  height: 50
-  width: 50
+  height: 51
+  width: 51
   step_time: 0.1
   sample_time: 0.1
   offset: [0, 0]
@@ -15,22 +15,23 @@ world:
     y-label: 'Y'
 
 robot:
-
   - number: 1
     kinematics: {name: 'omni'}
     shape: {name: 'circle', radius: 0.2}
-    state: [20, 1, 0]
-    goal: [2, 23, 0]
-    behavior: {name: 'rvo'}
-    color: 'blue'
+    state: [12, 27, 0]
+    goal: [23, 23, 0]
+    behavior: {name: 'dash'}
+    color: 'g'
+    plot:
+     show_trajectory: True
     sensors:
         - name: 'lidar2d'
-          range_min: 0
-          range_max: 10
-          angle_range: 7.14
-          number: 100
+          range_min: 1.0
+          range_max: 5
+          angle_range: 6.0
+          number: 50
           noise: True
-          alpha: 0.3
+          alpha: 0.2
 
 obstacle:
   - shape: {name: 'rectangle', length: 51.0, width: 1.0}

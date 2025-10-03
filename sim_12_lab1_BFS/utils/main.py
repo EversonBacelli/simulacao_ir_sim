@@ -1,7 +1,5 @@
 import copy
 from .no import No, Status
-from simulation10_motionBFS_circular_ir_sim.utils.matriz_obstaculos import gerar_matriz_obstaculos_invertida
-from simulation10_motionBFS_circular_ir_sim.utils.arvore import gerarArvore, printarArvore
 
 
 def validarObjetivo(atual, objetivo):
