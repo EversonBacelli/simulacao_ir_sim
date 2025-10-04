@@ -3,7 +3,7 @@ import time, os, psutil, tracemalloc, copy
 from sim_12_lab_DFS.src.stage1_abstracao.algDFS import algoritmoDFS
 
 def definirNos(m):
-     inicio = [25, 11]
+     inicio = [15, 15]    # 5 , 15
      # Stage 1 - Algoritmo de Mapeamento do Ambiente com BFS
      processoS1 = psutil.Process(os.getpid())
      tracemalloc.start()
@@ -19,4 +19,4 @@ def definirNos(m):
      men_pico_s1 = men_pico
      tracemalloc.stop()
 
-     return inicioDFS, fimDFS, memoriaS1, men_atual_s1, m, DFS
+     return inicioDFS, fimDFS, memoriaS1, men_atual_s1, m, timeDFS, inicioProcess, fimProcess, men_pico_s1, DFS

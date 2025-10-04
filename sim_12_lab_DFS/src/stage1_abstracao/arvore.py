@@ -1,5 +1,5 @@
 from sim_12_lab_DFS.src.classes.no import No, Status
-print(f"DEBUG (definirNos.py): ID da classe No é {id(No)}")
+
 
 
 def gerarArvore(matriz):
@@ -23,18 +23,5 @@ def gerarArvore(matriz):
     
     return novaMatriz
 
-def printarArvore(matriz):
-    for i in range(50):
-        for j in range(50):
-            no = None
-            if matriz[i][j] is not None:
-                no = matriz[i][j]
-                
-            
-            try:
-                print(f' posicao = {no.posicao} - vizinhos: {(no.vizinhos)} numeroVizinho {no.numeroVizinhos}')
-            except:
-                print('', end='')
-            
-            print('', end='')
+
 

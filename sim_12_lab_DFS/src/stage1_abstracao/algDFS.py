@@ -19,7 +19,7 @@ def algoritmoDFS(origem, matriz):
         atual.status = Status.VISITADO
  
         # Valida se o objetivo foi encontrado
-        if len(caminho) == 1249:
+        if len(caminho) == 204:
             return caminho
 
         # Explorar Vizinhos

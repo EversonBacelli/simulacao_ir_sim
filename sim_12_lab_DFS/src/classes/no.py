@@ -14,7 +14,7 @@ class No:
         self.status = Status.NAO_VISITADO
         self.posicao = [linha, coluna]
         self.pai = None
-        self.equivalente = [coluna, 50 - linha]
+        self.equivalente = [coluna, 20 - linha]
         self.visitas = 0
         No.NOS.append(self)
             

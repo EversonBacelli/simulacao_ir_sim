@@ -1,5 +1,5 @@
 import copy
-from ..classes.no import No, Status
+from sim_12_lab_DFS.src.classes.no import No, Status
 
 
 def validarObjetivo(atual, objetivo):
