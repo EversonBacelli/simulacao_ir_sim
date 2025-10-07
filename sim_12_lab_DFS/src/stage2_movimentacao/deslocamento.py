@@ -15,7 +15,7 @@ def remontarLista(pontoInicial, lista):
     return lista
 
 def motionRobot(objetivo, list, inicio, m):
-    print('--- motion')
+    # print('--- motion')
     obj = objetivo
     # Definir Objetivo no IR-SIM
     definirObjetivo(obj, m)
@@ -33,13 +33,10 @@ def motionRobot(objetivo, list, inicio, m):
         proximo = listaDeNos[1]
         # validar posicao
         # print(atual.posicao ,  "  ---  ", obj)
-        if atual.posicao[0] == obj[0] and atual.posicao[1] == obj[1]:
-            env = movimentacaoIR_SIM(atual)
-            print("Objetivo Alcançado: ", end=' ')
-            print(atual.posicao)
-            # env.end()
-            nos.append(atual)
-            return nos
+        resp, nos = validarObjetivo(atual, obj, nos)
+        
+        if resp:
+           return nos
         elif len(listaDeNos) > 0:
             posicaoInicial = atual.posicao 
             posicaoFinal = proximo.posicao 
@@ -48,9 +45,12 @@ def motionRobot(objetivo, list, inicio, m):
             topo = caminho.pop()
             #movimentacaoIR_SIM(topo)
             for no in caminho:
+                resp, nos = validarObjetivo(no, obj, nos)
+                if resp:
+                    return nos
                 movimentacaoIR_SIM(no)
                 nos.append(no)
-                # nos = inserirNaLista(nos, no)
+                
             listaDeNos.pop(0)
             for item in nos:
                 item.status = Status.NAO_VISITADO
@@ -84,3 +84,13 @@ def inserirNaLista(lista, no):
     if no not in lista:
         lista.append(no)
     return lista
+
+def validarObjetivo(atual, obj, nos):
+    if atual.posicao[0] == obj[0] and atual.posicao[1] == obj[1]:
+        movimentacaoIR_SIM(atual)
+        print("Objetivo Alcançado: ", end=' ')
+        print(atual.posicao)    
+        nos.append(atual)
+        return True, nos
+    else: 
+        return False, nos

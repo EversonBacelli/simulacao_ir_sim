@@ -17,7 +17,7 @@ robot:
   - number: 1
     kinematics: {name: 'omni'}
     shape: {name: 'circle', radius: 0.2}
-    state: [19, 19, 0]
+    state: [15, 5, 0]
     goal: [15, 17, 0]
     behavior: {name: 'dash'}
     color: 'g'

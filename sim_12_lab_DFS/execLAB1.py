@@ -33,20 +33,22 @@ inicioDFS, fimDFS, memoriaS1, men_atual_s1, m, timeDFS, inicioProcess, fimProces
 
 # for linha in m:
 #     for no in linha:    
-#         if no is not None:
-#             print(no.posicao)
+#         if no is not None and no.equivalente[1] == 19:
+#             print(no.posicao , ' --> ', no.equivalente, "  -  ", no.valor )
+
+
+
 
 # stage 2 - buscar os objetivos
-inicio = [1, 19]
-
+inicio = [15, 15]
 varrerMapa(goals, inicio, m, DFS, inicioDFS, fimDFS, men_atual_s1, memoriaS1)
 
 
 
-# input('Aperte qualquer coisa para finalizar')
-# lista_dict = [p.__dict__ for p in Estatistica.resultado]
-# json_result = json.dumps(lista_dict, ensure_ascii=False, indent=4)
-# print(json_result)
+input('Aperte qualquer coisa para finalizar')
+lista_dict = [p.__dict__ for p in Estatistica.resultado]
+json_result = json.dumps(lista_dict, ensure_ascii=False, indent=4)
+print(json_result)
 
 
 

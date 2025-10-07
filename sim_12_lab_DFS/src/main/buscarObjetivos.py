@@ -7,7 +7,7 @@ from sim_12_lab_DFS.src.classes.estatistica import Estatistica
 def varrerMapa(goals, inicio, m, DFS, inicioDFS, fimDFS, men_atual_s1, memoriaS1):
 
     for go in goals:
-        print('-- inicio do processo -- : ', go)
+        # print('-- inicio do processo -- : ', go)
         m = No.resetMatriz(m) 
         tracemalloc.start()
         processoS2 = psutil.Process(os.getpid())
@@ -15,7 +15,7 @@ def varrerMapa(goals, inicio, m, DFS, inicioDFS, fimDFS, men_atual_s1, memoriaS1
         execProcessInicio = time.process_time()
         execBFSinicio = time.time()
         nos = motionRobot(go, copy.deepcopy(DFS), inicio, m)
-        print('-----')
+       
         inicio = go
         execDFSfim = time.time()
         execProcessFim = time.process_time()
@@ -29,7 +29,7 @@ def varrerMapa(goals, inicio, m, DFS, inicioDFS, fimDFS, men_atual_s1, memoriaS1
         execDFS = execDFSfim - execDFSinicio
         tempoDeCiclo = execDFSfim - inicioDFS
         totalRAM = men_atual_s1 + men_atual_s2
-        print("---- 2")
+       
         Estatistica(nos[0], nos[-1], timeDFS, memoriaS1, men_atual_s1, execDFS, men_atual_s2, men_pico_s2, len(nos), tempoDeCiclo, totalRAM)
 
-        print("---- 3")
+       
