@@ -3,11 +3,11 @@ import numpy as np
 
 
 # Tamanho do labirinto
-rows, cols = 10, 10  # você pode alterar para 50x50
+rows, cols = 15, 15  # você pode alterar para 50x50
 
 # Criar labirinto
 m = maze(rows, cols)
-m.CreateMaze(loopPercent=15)
+m.CreateMaze(loopPercent=40)
 
 # Inicializar matriz cheia de 1 (paredes)
 matriz = [[1 for _ in range(cols*2 + 1)] for _ in range(rows*2 + 1)]
@@ -24,7 +24,7 @@ for i in range(1, rows*2, 2):
 
 
 
-np.savetxt("teste.txt", matriz, fmt='%d')
+np.savetxt("matriz30x30_45.txt", matriz, fmt='%d')
 m.run()
 
 # Imprimir matriz no console
