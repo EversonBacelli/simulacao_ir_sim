@@ -1,15 +1,16 @@
-# labirinto5.yaml
+
+
 world:
-  height: 50
-  width: 50
+  height: 51
+  width: 51
   step_time: 0.1
   sample_time: 0.1
   offset: [0, 0]
-  control_mode: 'acker'
-  collision_mode: 'rvo'
+  control_mode: 'manual'
+  collision_mode: 'unobstructed'
   plot:
     show-title: True
-    title: 'Robot World'
+    title: 'Robot World 51x51 (matriz50x50_30)'
     show-axis: True
     x-label: 'X'
     y-label: 'Y'
@@ -17,11 +18,13 @@ world:
 robot:
   - number: 1
     kinematics: {name: 'omni'}
-    shape: {name: 'circle', radius: 0.4}
-    state: [1, 1, 0]
-    goal: [23, 23, 0]
-    behavior: {name: 'rvo'}
+    shape: {name: 'circle', radius: 0.2}
+    state: [2, 2, 0] # Ponto de partida
+    goal: [48, 48, 0] # Objetivo (ajustado para o novo limite)
+    behavior: {name: 'dash'}
     color: 'g'
+    plot:
+     show_trajectory: True
     sensors:
         - name: 'lidar2d'
           range_min: 1.0
@@ -31,2900 +34,3914 @@ robot:
           noise: True
           alpha: 0.2
 
-  - number: 1
-    kinematics: {name: 'omni'}
-    shape: {name: 'circle', radius: 0.4}
-    state: [20, 1, 0]
-    goal: [2, 23, 0]
-    behavior: {name: 'rvo'}
-    color: 'blue'
-    sensors:
-        - name: 'lidar2d'
-          range_min: 0
-          range_max: 10
-          angle_range: 7.14
-          number: 100
-          noise: True
-          alpha: 0.3
-
 obstacle:
-  - shape: {name: 'rectangle', length: 51.0, width: 1.0}
-    state: [25.0, 0, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [0, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [1, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [2, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [3, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [4, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [5, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [6, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [7, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [8, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [9, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [10, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [11, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [12, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [13, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [14, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [15, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [16, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [17, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [18, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [19, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [20, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [21, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [22, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [23, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [24, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [25, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [26, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [27, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [28, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [29, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [30, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [31, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [32, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [33, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [34, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [35, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [36, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [37, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [38, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [39, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [40, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [41, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [42, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [43, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [44, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [45, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [46, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [47, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [48, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [49, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [0, 1, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [4, 1, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [8, 1, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [14, 1, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [26, 1, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [38, 1, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [42, 1, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [48, 1, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 1, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [0, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [1, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [2, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [4, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [6, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [8, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [10, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [11, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [12, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [14, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [15, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [16, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [18, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [19, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [20, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [22, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [23, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [24, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [26, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [27, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [28, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [29, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [30, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [31, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [32, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [34, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [35, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [36, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [37, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [38, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [40, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [42, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [44, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [46, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [48, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [0, 3, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [3, 3, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [6, 3, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [12, 3, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [18, 3, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [24, 3, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [26, 3, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [34, 3, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [40, 3, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [44, 3, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [46, 3, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 3, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [0, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [2, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [3, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [4, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [5, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [6, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [7, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [8, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [9, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [10, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [12, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [13, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [14, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [15, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [16, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [17, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [19, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [21, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [22, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [23, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [25, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [27, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [29, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [31, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [33, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [35, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [37, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [38, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [39, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [40, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [41, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [42, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [43, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [44, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [45, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [46, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [48, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [0, 5, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [4, 5, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [8, 5, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [12, 5, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [18, 5, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [20, 5, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [22, 5, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [26, 5, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [28, 5, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [30, 5, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [32, 5, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [34, 5, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [46, 5, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 5, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [0, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [2, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [4, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [6, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [8, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [10, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [12, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [14, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [16, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [18, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [20, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [22, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [24, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [26, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [28, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [30, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [32, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [33, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [34, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [36, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [38, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [40, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [41, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [42, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [44, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [46, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [48, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [0, 7, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [4, 7, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [16, 7, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [44, 7, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 7, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [0, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [2, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [4, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [6, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [7, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [8, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [9, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [10, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [12, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [13, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [14, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [16, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [17, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [18, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [19, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [20, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [22, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [24, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [26, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [28, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [30, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [31, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [32, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [33, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [34, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [36, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [38, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [40, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [41, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [42, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [43, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [44, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [46, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [48, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [0, 9, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [8, 9, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [10, 9, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [12, 9, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [14, 9, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [16, 9, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [22, 9, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [28, 9, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [36, 9, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [40, 9, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [44, 9, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [48, 9, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 9, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [0, 10, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [2, 10, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [4, 10, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [6, 10, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [8, 10, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [10, 10, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [12, 10, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [14, 10, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [15, 10, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [16, 10, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [18, 10, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [19, 10, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [20, 10, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [22, 10, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [24, 10, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [26, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 1, 0]
+    state: [27, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [4.0, 1, 0]
+    state: [28, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6.0, 1, 0]
+    state: [30, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20.0, 1, 0]
+    state: [32, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26.0, 1, 0]
+    state: [34, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30.0, 1, 0]
+    state: [36, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 1, 0]
+    state: [38, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [42.0, 1, 0]
+    state: [40, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 1, 0]
+    state: [41, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [1.0, 2, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [42, 10, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [43, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [4.0, 2, 0]
+    state: [44, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6.0, 2, 0]
+    state: [46, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [9.0, 2, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [48, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 7.0, width: 1.0}
-    state: [15.0, 2, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20.0, 2, 0]
+    state: [0, 11, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [24.0, 2, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [4, 11, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [28.0, 2, 0]
+    state: [12, 11, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30.0, 2, 0]
+    state: [18, 11, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [34.0, 2, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [22, 11, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 2, 0]
+    state: [28, 11, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40.0, 2, 0]
+    state: [36, 11, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [42.0, 2, 0]
+    state: [44, 11, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [46.0, 2, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 11, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 2, 0]
+    state: [0, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 3, 0]
+    state: [2, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [4.0, 3, 0]
+    state: [3, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10.0, 3, 0]
+    state: [4, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [12.0, 3, 0]
+    state: [5, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18.0, 3, 0]
+    state: [6, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22.0, 3, 0]
+    state: [7, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26.0, 3, 0]
+    state: [8, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [28.0, 3, 0]
+    state: [9, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [32.0, 3, 0]
+    state: [10, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36.0, 3, 0]
+    state: [11, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40.0, 3, 0]
+    state: [13, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44.0, 3, 0]
+    state: [14, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 3, 0]
+    state: [15, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 4, 0]
+    state: [17, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 9.0, width: 1.0}
-    state: [6.0, 4, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [19, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [12.0, 4, 0]
+    state: [21, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [15.0, 4, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [22, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [19.0, 4, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [23, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22.0, 4, 0]
+    state: [25, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24.0, 4, 0]
+    state: [27, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26.0, 4, 0]
+    state: [29, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [30.0, 4, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [31, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34.0, 4, 0]
+    state: [32, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 9.0, width: 1.0}
-    state: [40.0, 4, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [33, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [47.0, 4, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [35, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 4, 0]
+    state: [37, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 5, 0]
+    state: [39, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2.0, 5, 0]
+    state: [41, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10.0, 5, 0]
+    state: [42, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14.0, 5, 0]
+    state: [43, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18.0, 5, 0]
+    state: [45, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22.0, 5, 0]
+    state: [47, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24.0, 5, 0]
+    state: [49, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26.0, 5, 0]
+    state: [50, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30.0, 5, 0]
+    state: [0, 13, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34.0, 5, 0]
+    state: [4, 13, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36.0, 5, 0]
+    state: [16, 13, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40.0, 5, 0]
+    state: [22, 13, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44.0, 5, 0]
+    state: [28, 13, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46.0, 5, 0]
+    state: [42, 13, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48.0, 5, 0]
+    state: [46, 13, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 5, 0]
+    state: [48, 13, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 6, 0]
+    state: [50, 13, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2.0, 6, 0]
+    state: [0, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [6.0, 6, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [2, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10.0, 6, 0]
+    state: [4, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [13.0, 6, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [6, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 7.0, width: 1.0}
-    state: [19.0, 6, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [8, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24.0, 6, 0]
+    state: [10, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [27.0, 6, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [12, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30.0, 6, 0]
+    state: [14, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [32.0, 6, 0]
+    state: [16, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34.0, 6, 0]
+    state: [18, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36.0, 6, 0]
+    state: [19, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 6, 0]
+    state: [20, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [41.0, 6, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [21, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44.0, 6, 0]
+    state: [23, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46.0, 6, 0]
+    state: [25, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48.0, 6, 0]
+    state: [27, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 6, 0]
+    state: [29, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 7, 0]
+    state: [31, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2.0, 7, 0]
+    state: [33, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [4.0, 7, 0]
+    state: [35, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6.0, 7, 0]
+    state: [37, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10.0, 7, 0]
+    state: [39, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14.0, 7, 0]
+    state: [40, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18.0, 7, 0]
+    state: [41, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24.0, 7, 0]
+    state: [43, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30.0, 7, 0]
+    state: [45, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [32.0, 7, 0]
+    state: [47, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34.0, 7, 0]
+    state: [49, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 7, 0]
+    state: [50, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44.0, 7, 0]
+    state: [0, 15, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46.0, 7, 0]
+    state: [4, 15, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48.0, 7, 0]
+    state: [18, 15, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 7, 0]
+    state: [22, 15, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 8, 0]
+    state: [28, 15, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2.0, 8, 0]
+    state: [34, 15, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [4.0, 8, 0]
+    state: [40, 15, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6.0, 8, 0]
+    state: [46, 15, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [10.0, 8, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 15, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [15.0, 8, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [0, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18.0, 8, 0]
+    state: [2, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 13.0, width: 1.0}
-    state: [26.0, 8, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [4, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34.0, 8, 0]
+    state: [6, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 7.0, width: 1.0}
-    state: [39.0, 8, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [8, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44.0, 8, 0]
+    state: [10, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46.0, 8, 0]
+    state: [12, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48.0, 8, 0]
+    state: [14, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 8, 0]
+    state: [16, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 9, 0]
+    state: [17, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2.0, 9, 0]
+    state: [18, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [4.0, 9, 0]
+    state: [20, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6.0, 9, 0]
+    state: [22, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [12.0, 9, 0]
+    state: [24, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14.0, 9, 0]
+    state: [26, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16.0, 9, 0]
+    state: [28, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18.0, 9, 0]
+    state: [30, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22.0, 9, 0]
+    state: [32, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34.0, 9, 0]
+    state: [34, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36.0, 9, 0]
+    state: [36, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [42.0, 9, 0]
+    state: [38, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44.0, 9, 0]
+    state: [40, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46.0, 9, 0]
+    state: [42, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 9, 0]
+    state: [44, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 10, 0]
+    state: [46, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2.0, 10, 0]
+    state: [48, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [4.0, 10, 0]
+    state: [50, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [8.0, 10, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [0, 17, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [12.0, 10, 0]
+    state: [6, 17, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14.0, 10, 0]
+    state: [8, 17, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16.0, 10, 0]
+    state: [12, 17, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [19.0, 10, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [28, 17, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22.0, 10, 0]
+    state: [32, 17, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 11.0, width: 1.0}
-    state: [29.0, 10, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [38, 17, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36.0, 10, 0]
+    state: [42, 17, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [39.0, 10, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 17, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [43.0, 10, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [0, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46.0, 10, 0]
+    state: [2, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [49.0, 10, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [4, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 11, 0]
+    state: [6, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2.0, 11, 0]
+    state: [8, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [4.0, 11, 0]
+    state: [10, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [8.0, 11, 0]
+    state: [11, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [12.0, 11, 0]
+    state: [12, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16.0, 11, 0]
+    state: [14, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20.0, 11, 0]
+    state: [16, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24.0, 11, 0]
+    state: [18, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26.0, 11, 0]
+    state: [20, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34.0, 11, 0]
+    state: [22, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36.0, 11, 0]
+    state: [24, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 11, 0]
+    state: [26, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46.0, 11, 0]
+    state: [28, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 11, 0]
+    state: [30, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 12, 0]
+    state: [31, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2.0, 12, 0]
+    state: [32, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [4.0, 12, 0]
+    state: [34, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [7.0, 12, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [36, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 7.0, width: 1.0}
-    state: [13.0, 12, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [38, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 7.0, width: 1.0}
-    state: [21.0, 12, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [40, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26.0, 12, 0]
+    state: [42, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [30.0, 12, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [44, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34.0, 12, 0]
+    state: [46, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36.0, 12, 0]
+    state: [48, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 12, 0]
+    state: [50, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 11.0, width: 1.0}
-    state: [45.0, 12, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [0, 19, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 13, 0]
+    state: [12, 19, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [4.0, 13, 0]
+    state: [16, 19, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10.0, 13, 0]
+    state: [22, 19, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18.0, 13, 0]
+    state: [36, 19, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [32.0, 13, 0]
+    state: [50, 19, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34.0, 13, 0]
+    state: [0, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36.0, 13, 0]
+    state: [2, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 13, 0]
+    state: [4, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [42.0, 13, 0]
+    state: [6, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 13, 0]
+    state: [8, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [2.0, 14, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [10, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [8.0, 14, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [11, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [12.0, 14, 0]
+    state: [12, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14.0, 14, 0]
+    state: [14, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [17.0, 14, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [15, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 13.0, width: 1.0}
-    state: [26.0, 14, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [16, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34.0, 14, 0]
+    state: [18, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36.0, 14, 0]
+    state: [20, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [40.0, 14, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [22, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [46.0, 14, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [24, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 14, 0]
+    state: [26, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 15, 0]
+    state: [28, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [4.0, 15, 0]
+    state: [30, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6.0, 15, 0]
+    state: [32, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [12.0, 15, 0]
+    state: [34, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14.0, 15, 0]
+    state: [36, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16.0, 15, 0]
+    state: [38, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20.0, 15, 0]
+    state: [40, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22.0, 15, 0]
+    state: [42, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [32.0, 15, 0]
+    state: [44, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36.0, 15, 0]
+    state: [46, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44.0, 15, 0]
+    state: [48, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48.0, 15, 0]
+    state: [50, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 15, 0]
+    state: [0, 21, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 16, 0]
+    state: [4, 21, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2.0, 16, 0]
+    state: [8, 21, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [4.0, 16, 0]
+    state: [26, 21, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 7.0, width: 1.0}
-    state: [9.0, 16, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [32, 21, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [15.0, 16, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [38, 21, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [19.0, 16, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [46, 21, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22.0, 16, 0]
+    state: [50, 21, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 7.0, width: 1.0}
-    state: [27.0, 16, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [0, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [34.0, 16, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [2, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 7.0, width: 1.0}
-    state: [41.0, 16, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [4, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [47.0, 16, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [6, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 16, 0]
+    state: [8, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 17, 0]
+    state: [10, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2.0, 17, 0]
+    state: [12, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6.0, 17, 0]
+    state: [14, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14.0, 17, 0]
+    state: [16, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22.0, 17, 0]
+    state: [17, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24.0, 17, 0]
+    state: [18, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26.0, 17, 0]
+    state: [20, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30.0, 17, 0]
+    state: [22, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36.0, 17, 0]
+    state: [24, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [42.0, 17, 0]
+    state: [26, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46.0, 17, 0]
+    state: [28, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 17, 0]
+    state: [30, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 18, 0]
+    state: [32, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [4.0, 18, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [34, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [10.0, 18, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [36, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14.0, 18, 0]
+    state: [38, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 7.0, width: 1.0}
-    state: [19.0, 18, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [40, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24.0, 18, 0]
+    state: [42, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26.0, 18, 0]
+    state: [44, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [28.0, 18, 0]
+    state: [46, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [32.0, 18, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [48, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [38.0, 18, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [42.0, 18, 0]
+    state: [0, 23, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [45.0, 18, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [4, 23, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48.0, 18, 0]
+    state: [12, 23, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 18, 0]
+    state: [20, 23, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 19, 0]
+    state: [22, 23, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2.0, 19, 0]
+    state: [26, 23, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6.0, 19, 0]
+    state: [34, 23, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [12.0, 19, 0]
+    state: [42, 23, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14.0, 19, 0]
+    state: [48, 23, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16.0, 19, 0]
+    state: [50, 23, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22.0, 19, 0]
+    state: [0, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24.0, 19, 0]
+    state: [2, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [28.0, 19, 0]
+    state: [4, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [32.0, 19, 0]
+    state: [6, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34.0, 19, 0]
+    state: [8, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40.0, 19, 0]
+    state: [10, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44.0, 19, 0]
+    state: [11, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48.0, 19, 0]
+    state: [12, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 19, 0]
+    state: [14, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 20, 0]
+    state: [16, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [3.0, 20, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [18, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6.0, 20, 0]
+    state: [20, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [9.0, 20, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [21, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [13.0, 20, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [22, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16.0, 20, 0]
+    state: [23, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [19.0, 20, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [25, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22.0, 20, 0]
+    state: [27, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [25.0, 20, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [29, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [28.0, 20, 0]
+    state: [31, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30.0, 20, 0]
+    state: [33, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [32.0, 20, 0]
+    state: [35, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [36.0, 20, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [37, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [41.0, 20, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [39, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44.0, 20, 0]
+    state: [41, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [47.0, 20, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [43, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 20, 0]
+    state: [45, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 21, 0]
+    state: [47, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [4.0, 21, 0]
+    state: [49, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [8.0, 21, 0]
+    state: [50, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10.0, 21, 0]
+    state: [0, 25, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [12.0, 21, 0]
+    state: [4, 25, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16.0, 21, 0]
+    state: [12, 25, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18.0, 21, 0]
+    state: [16, 25, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20.0, 21, 0]
+    state: [28, 25, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22.0, 21, 0]
+    state: [34, 25, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26.0, 21, 0]
+    state: [38, 25, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [28.0, 21, 0]
+    state: [42, 25, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30.0, 21, 0]
+    state: [50, 25, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36.0, 21, 0]
+    state: [0, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 21, 0]
+    state: [2, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40.0, 21, 0]
+    state: [4, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [42.0, 21, 0]
+    state: [6, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44.0, 21, 0]
+    state: [8, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46.0, 21, 0]
+    state: [10, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 21, 0]
+    state: [11, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [1.0, 22, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [12, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [4.0, 22, 0]
+    state: [14, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [7.0, 22, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [16, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10.0, 22, 0]
+    state: [18, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [12.0, 22, 0]
+    state: [20, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [15.0, 22, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [22, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18.0, 22, 0]
+    state: [24, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20.0, 22, 0]
+    state: [26, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22.0, 22, 0]
+    state: [28, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24.0, 22, 0]
+    state: [30, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [27.0, 22, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [32, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [32.0, 22, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [34, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36.0, 22, 0]
+    state: [36, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 22, 0]
+    state: [38, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40.0, 22, 0]
+    state: [40, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [42.0, 22, 0]
+    state: [41, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44.0, 22, 0]
+    state: [42, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [47.0, 22, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [44, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 22, 0]
+    state: [46, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 23, 0]
+    state: [48, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [4.0, 23, 0]
+    state: [50, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10.0, 23, 0]
+    state: [0, 27, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [12.0, 23, 0]
+    state: [4, 27, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14.0, 23, 0]
+    state: [8, 27, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16.0, 23, 0]
+    state: [14, 27, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18.0, 23, 0]
+    state: [18, 27, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22.0, 23, 0]
+    state: [22, 27, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24.0, 23, 0]
+    state: [28, 27, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [28.0, 23, 0]
+    state: [30, 27, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34.0, 23, 0]
+    state: [32, 27, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 23, 0]
+    state: [38, 27, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40.0, 23, 0]
+    state: [46, 27, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [42.0, 23, 0]
+    state: [50, 27, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44.0, 23, 0]
+    state: [0, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48.0, 23, 0]
+    state: [2, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 23, 0]
+    state: [4, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 24, 0]
+    state: [6, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 7.0, width: 1.0}
-    state: [5.0, 24, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [8, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10.0, 24, 0]
+    state: [10, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [12.0, 24, 0]
+    state: [12, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14.0, 24, 0]
+    state: [14, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16.0, 24, 0]
+    state: [15, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18.0, 24, 0]
+    state: [16, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 7.0, width: 1.0}
-    state: [23.0, 24, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [18, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [28.0, 24, 0]
+    state: [20, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [31.0, 24, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [22, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [36.0, 24, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [24, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40.0, 24, 0]
+    state: [26, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [42.0, 24, 0]
+    state: [28, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [45.0, 24, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [30, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48.0, 24, 0]
+    state: [32, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 24, 0]
+    state: [34, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 25, 0]
+    state: [36, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2.0, 25, 0]
+    state: [38, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [8.0, 25, 0]
+    state: [40, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10.0, 25, 0]
+    state: [42, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16.0, 25, 0]
+    state: [44, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18.0, 25, 0]
+    state: [46, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20.0, 25, 0]
+    state: [48, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26.0, 25, 0]
+    state: [50, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [28.0, 25, 0]
+    state: [0, 29, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [32.0, 25, 0]
+    state: [4, 29, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34.0, 25, 0]
+    state: [8, 29, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 25, 0]
+    state: [12, 29, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40.0, 25, 0]
+    state: [26, 29, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44.0, 25, 0]
+    state: [30, 29, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48.0, 25, 0]
+    state: [36, 29, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 25, 0]
+    state: [42, 29, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 26, 0]
+    state: [48, 29, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2.0, 26, 0]
+    state: [50, 29, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [5.0, 26, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [0, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 9.0, width: 1.0}
-    state: [12.0, 26, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [2, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18.0, 26, 0]
+    state: [4, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20.0, 26, 0]
+    state: [6, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [23.0, 26, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [8, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26.0, 26, 0]
+    state: [10, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [29.0, 26, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [11, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [32.0, 26, 0]
+    state: [12, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34.0, 26, 0]
+    state: [14, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36.0, 26, 0]
+    state: [15, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 26, 0]
+    state: [16, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40.0, 26, 0]
+    state: [18, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [43.0, 26, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [20, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [47.0, 26, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [21, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 26, 0]
+    state: [22, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 27, 0]
+    state: [23, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2.0, 27, 0]
+    state: [24, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [4.0, 27, 0]
+    state: [25, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6.0, 27, 0]
+    state: [26, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14.0, 27, 0]
+    state: [27, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18.0, 27, 0]
+    state: [28, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20.0, 27, 0]
+    state: [29, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22.0, 27, 0]
+    state: [30, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24.0, 27, 0]
+    state: [31, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26.0, 27, 0]
+    state: [32, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30.0, 27, 0]
+    state: [33, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [32.0, 27, 0]
+    state: [34, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36.0, 27, 0]
+    state: [35, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 27, 0]
+    state: [36, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40.0, 27, 0]
+    state: [38, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [42.0, 27, 0]
+    state: [40, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46.0, 27, 0]
+    state: [41, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48.0, 27, 0]
+    state: [42, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 27, 0]
+    state: [44, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 28, 0]
+    state: [46, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2.0, 28, 0]
+    state: [48, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [4.0, 28, 0]
+    state: [50, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 7.0, width: 1.0}
-    state: [9.0, 28, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [0, 31, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14.0, 28, 0]
+    state: [4, 31, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [17.0, 28, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [12, 31, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20.0, 28, 0]
+    state: [20, 31, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22.0, 28, 0]
+    state: [22, 31, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24.0, 28, 0]
+    state: [24, 31, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [27.0, 28, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [26, 31, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30.0, 28, 0]
+    state: [28, 31, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [34.0, 28, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [34, 31, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 28, 0]
+    state: [42, 31, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [41.0, 28, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 31, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [45.0, 28, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [0, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48.0, 28, 0]
+    state: [2, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 28, 0]
+    state: [4, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 29, 0]
+    state: [6, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2.0, 29, 0]
+    state: [8, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [4.0, 29, 0]
+    state: [10, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14.0, 29, 0]
+    state: [11, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16.0, 29, 0]
+    state: [12, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18.0, 29, 0]
+    state: [14, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20.0, 29, 0]
+    state: [16, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22.0, 29, 0]
+    state: [18, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24.0, 29, 0]
+    state: [20, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30.0, 29, 0]
+    state: [22, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [32.0, 29, 0]
+    state: [24, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36.0, 29, 0]
+    state: [26, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 29, 0]
+    state: [28, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44.0, 29, 0]
+    state: [30, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46.0, 29, 0]
+    state: [32, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 29, 0]
+    state: [34, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 30, 0]
+    state: [36, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2.0, 30, 0]
+    state: [38, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [4.0, 30, 0]
+    state: [40, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 9.0, width: 1.0}
-    state: [10.0, 30, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [42, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16.0, 30, 0]
+    state: [44, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18.0, 30, 0]
+    state: [46, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20.0, 30, 0]
+    state: [48, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22.0, 30, 0]
+    state: [50, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 7.0, width: 1.0}
-    state: [27.0, 30, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [0, 33, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [32.0, 30, 0]
+    state: [4, 33, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34.0, 30, 0]
+    state: [8, 33, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36.0, 30, 0]
+    state: [12, 33, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 7.0, width: 1.0}
-    state: [41.0, 30, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [16, 33, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46.0, 30, 0]
+    state: [22, 33, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [49.0, 30, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [28, 33, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 31, 0]
+    state: [34, 33, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [4.0, 31, 0]
+    state: [40, 33, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6.0, 31, 0]
+    state: [46, 33, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [12.0, 31, 0]
+    state: [50, 33, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16.0, 31, 0]
+    state: [0, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18.0, 31, 0]
+    state: [2, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22.0, 31, 0]
+    state: [4, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [28.0, 31, 0]
+    state: [6, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30.0, 31, 0]
+    state: [8, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [32.0, 31, 0]
+    state: [10, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34.0, 31, 0]
+    state: [11, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36.0, 31, 0]
+    state: [12, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [42.0, 31, 0]
+    state: [14, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46.0, 31, 0]
+    state: [15, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48.0, 31, 0]
+    state: [16, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 31, 0]
+    state: [18, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [2.0, 32, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [20, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [7.0, 32, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [22, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10.0, 32, 0]
+    state: [24, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [13.0, 32, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [26, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16.0, 32, 0]
+    state: [27, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 7.0, width: 1.0}
-    state: [21.0, 32, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [28, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26.0, 32, 0]
+    state: [30, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [28.0, 32, 0]
+    state: [32, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30.0, 32, 0]
+    state: [34, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [33.0, 32, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [36, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [37.0, 32, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [38, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40.0, 32, 0]
+    state: [40, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [42.0, 32, 0]
+    state: [41, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44.0, 32, 0]
+    state: [42, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46.0, 32, 0]
+    state: [43, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48.0, 32, 0]
+    state: [44, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 32, 0]
+    state: [46, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 33, 0]
+    state: [48, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [4.0, 33, 0]
+    state: [50, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10.0, 33, 0]
+    state: [0, 35, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14.0, 33, 0]
+    state: [4, 35, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16.0, 33, 0]
+    state: [12, 35, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20.0, 33, 0]
+    state: [18, 35, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26.0, 33, 0]
+    state: [22, 35, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30.0, 33, 0]
+    state: [28, 35, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36.0, 33, 0]
+    state: [30, 35, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 33, 0]
+    state: [34, 35, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40.0, 33, 0]
+    state: [40, 35, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44.0, 33, 0]
+    state: [44, 35, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46.0, 33, 0]
+    state: [50, 35, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48.0, 33, 0]
+    state: [0, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 33, 0]
+    state: [2, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 34, 0]
+    state: [4, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2.0, 34, 0]
+    state: [6, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 9.0, width: 1.0}
-    state: [8.0, 34, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [8, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14.0, 34, 0]
+    state: [10, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16.0, 34, 0]
+    state: [11, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18.0, 34, 0]
+    state: [12, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20.0, 34, 0]
+    state: [14, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22.0, 34, 0]
+    state: [15, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 11.0, width: 1.0}
-    state: [29.0, 34, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [16, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36.0, 34, 0]
+    state: [18, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 34, 0]
+    state: [20, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [42.0, 34, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [22, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46.0, 34, 0]
+    state: [24, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48.0, 34, 0]
+    state: [26, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 34, 0]
+    state: [28, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 35, 0]
+    state: [30, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2.0, 35, 0]
+    state: [32, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [12.0, 35, 0]
+    state: [34, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16.0, 35, 0]
+    state: [36, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18.0, 35, 0]
+    state: [38, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20.0, 35, 0]
+    state: [40, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22.0, 35, 0]
+    state: [42, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30.0, 35, 0]
+    state: [44, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36.0, 35, 0]
+    state: [46, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 35, 0]
+    state: [48, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40.0, 35, 0]
+    state: [50, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44.0, 35, 0]
+    state: [0, 37, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46.0, 35, 0]
+    state: [8, 37, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48.0, 35, 0]
+    state: [12, 37, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 35, 0]
+    state: [16, 37, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 36, 0]
+    state: [22, 37, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2.0, 36, 0]
+    state: [32, 37, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 13.0, width: 1.0}
-    state: [10.0, 36, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [40, 37, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18.0, 36, 0]
+    state: [50, 37, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20.0, 36, 0]
+    state: [0, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 7.0, width: 1.0}
-    state: [25.0, 36, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [2, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30.0, 36, 0]
+    state: [4, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [34.0, 36, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [6, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 36, 0]
+    state: [8, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40.0, 36, 0]
+    state: [10, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [43.0, 36, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [11, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46.0, 36, 0]
+    state: [12, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48.0, 36, 0]
+    state: [14, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 36, 0]
+    state: [16, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 37, 0]
+    state: [18, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2.0, 37, 0]
+    state: [20, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [4.0, 37, 0]
+    state: [22, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [8.0, 37, 0]
+    state: [24, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14.0, 37, 0]
+    state: [26, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16.0, 37, 0]
+    state: [28, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18.0, 37, 0]
+    state: [30, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22.0, 37, 0]
+    state: [32, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [28.0, 37, 0]
+    state: [34, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30.0, 37, 0]
+    state: [36, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34.0, 37, 0]
+    state: [38, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 37, 0]
+    state: [40, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40.0, 37, 0]
+    state: [41, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46.0, 37, 0]
+    state: [42, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48.0, 37, 0]
+    state: [44, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 37, 0]
+    state: [46, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 38, 0]
+    state: [48, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [3.0, 38, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6.0, 38, 0]
+    state: [0, 39, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [8.0, 38, 0]
+    state: [4, 39, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10.0, 38, 0]
+    state: [12, 39, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [12.0, 38, 0]
+    state: [18, 39, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14.0, 38, 0]
+    state: [22, 39, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16.0, 38, 0]
+    state: [28, 39, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [20.0, 38, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [34, 39, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [25.0, 38, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [42, 39, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [28.0, 38, 0]
+    state: [50, 39, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [31.0, 38, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [0, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34.0, 38, 0]
+    state: [2, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36.0, 38, 0]
+    state: [4, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 38, 0]
+    state: [6, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [42.0, 38, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [8, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46.0, 38, 0]
+    state: [10, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48.0, 38, 0]
+    state: [11, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 38, 0]
+    state: [12, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 39, 0]
+    state: [14, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6.0, 39, 0]
+    state: [16, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [8.0, 39, 0]
+    state: [18, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10.0, 39, 0]
+    state: [20, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [12.0, 39, 0]
+    state: [22, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14.0, 39, 0]
+    state: [24, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16.0, 39, 0]
+    state: [26, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18.0, 39, 0]
+    state: [28, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26.0, 39, 0]
+    state: [30, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [28.0, 39, 0]
+    state: [32, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [32.0, 39, 0]
+    state: [34, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36.0, 39, 0]
+    state: [36, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 39, 0]
+    state: [38, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44.0, 39, 0]
+    state: [40, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46.0, 39, 0]
+    state: [42, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 39, 0]
+    state: [44, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 40, 0]
+    state: [46, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [4.0, 40, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [48, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [8.0, 40, 0]
+    state: [50, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10.0, 40, 0]
+    state: [0, 41, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [12.0, 40, 0]
+    state: [4, 41, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14.0, 40, 0]
+    state: [8, 41, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16.0, 40, 0]
+    state: [12, 41, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18.0, 40, 0]
+    state: [18, 41, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [22.0, 40, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [22, 41, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26.0, 40, 0]
+    state: [26, 41, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [28.0, 40, 0]
+    state: [28, 41, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 7.0, width: 1.0}
-    state: [33.0, 40, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [34, 41, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [40.0, 40, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [38, 41, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [46.0, 40, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [42, 41, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 40, 0]
+    state: [46, 41, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 41, 0]
+    state: [50, 41, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2.0, 41, 0]
+    state: [0, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6.0, 41, 0]
+    state: [2, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10.0, 41, 0]
+    state: [4, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [12.0, 41, 0]
+    state: [6, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16.0, 41, 0]
+    state: [8, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18.0, 41, 0]
+    state: [10, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20.0, 41, 0]
+    state: [11, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24.0, 41, 0]
+    state: [12, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26.0, 41, 0]
+    state: [14, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [28.0, 41, 0]
+    state: [16, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36.0, 41, 0]
+    state: [18, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 41, 0]
+    state: [20, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [42.0, 41, 0]
+    state: [22, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46.0, 41, 0]
+    state: [24, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 41, 0]
+    state: [26, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 42, 0]
+    state: [28, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2.0, 42, 0]
+    state: [30, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [4.0, 42, 0]
+    state: [32, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [8.0, 42, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [34, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [14.0, 42, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [36, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [19.0, 42, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [38, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22.0, 42, 0]
+    state: [40, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [25.0, 42, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [42, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [30.0, 42, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [44, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [35.0, 42, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [46, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 42, 0]
+    state: [48, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40.0, 42, 0]
+    state: [50, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [43.0, 42, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [0, 43, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46.0, 42, 0]
+    state: [4, 43, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [49.0, 42, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [12, 43, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 43, 0]
+    state: [18, 43, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [4.0, 43, 0]
+    state: [28, 43, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6.0, 43, 0]
+    state: [34, 43, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10.0, 43, 0]
+    state: [40, 43, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16.0, 43, 0]
+    state: [46, 43, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22.0, 43, 0]
+    state: [50, 43, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26.0, 43, 0]
+    state: [0, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [32.0, 43, 0]
+    state: [2, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 43, 0]
+    state: [4, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40.0, 43, 0]
+    state: [6, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44.0, 43, 0]
+    state: [8, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46.0, 43, 0]
+    state: [10, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 43, 0]
+    state: [11, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [2.0, 44, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [12, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [7.0, 44, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [14, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [12.0, 44, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [16, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 9.0, width: 1.0}
-    state: [20.0, 44, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [18, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26.0, 44, 0]
+    state: [20, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 11.0, width: 1.0}
-    state: [33.0, 44, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [22, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [41.0, 44, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [24, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44.0, 44, 0]
+    state: [26, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [47.0, 44, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [28, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 44, 0]
+    state: [30, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 45, 0]
+    state: [32, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6.0, 45, 0]
+    state: [34, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [12.0, 45, 0]
+    state: [36, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20.0, 45, 0]
+    state: [38, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24.0, 45, 0]
+    state: [40, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26.0, 45, 0]
+    state: [42, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 45, 0]
+    state: [44, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [42.0, 45, 0]
+    state: [46, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48.0, 45, 0]
+    state: [48, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 45, 0]
+    state: [50, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 46, 0]
+    state: [0, 45, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [4.0, 46, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [4, 45, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [9.0, 46, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [8, 45, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [12.0, 46, 0]
+    state: [14, 45, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [16.0, 46, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [18, 45, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20.0, 46, 0]
+    state: [22, 45, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22.0, 46, 0]
+    state: [28, 45, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24.0, 46, 0]
+    state: [34, 45, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 7.0, width: 1.0}
-    state: [29.0, 46, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [42, 45, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [35.0, 46, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [46, 45, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [39.0, 46, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 45, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [42.0, 46, 0]
+    state: [0, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [46.0, 46, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [2, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 46, 0]
+    state: [4, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 47, 0]
+    state: [6, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6.0, 47, 0]
+    state: [8, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [8.0, 47, 0]
+    state: [10, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10.0, 47, 0]
+    state: [11, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [12.0, 47, 0]
+    state: [12, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18.0, 47, 0]
+    state: [14, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22.0, 47, 0]
+    state: [15, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24.0, 47, 0]
+    state: [16, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [32.0, 47, 0]
+    state: [18, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34.0, 47, 0]
+    state: [20, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 47, 0]
+    state: [22, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40.0, 47, 0]
+    state: [24, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [42.0, 47, 0]
+    state: [26, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44.0, 47, 0]
+    state: [28, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48.0, 47, 0]
+    state: [30, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 47, 0]
+    state: [32, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [2.0, 48, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [34, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6.0, 48, 0]
+    state: [36, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [8.0, 48, 0]
+    state: [38, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10.0, 48, 0]
+    state: [40, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 5.0, width: 1.0}
-    state: [14.0, 48, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [42, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 13.0, width: 1.0}
-    state: [24.0, 48, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [44, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [33.0, 48, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [46, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36.0, 48, 0]
+    state: [48, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38.0, 48, 0]
+    state: [50, 46, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40.0, 48, 0]
+    state: [0, 47, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 3.0, width: 1.0}
-    state: [43.0, 48, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [4, 47, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46.0, 48, 0]
+    state: [18, 47, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48.0, 48, 0]
+    state: [22, 47, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 48, 0]
+    state: [28, 47, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0.0, 49, 0]
+    state: [34, 47, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [8.0, 49, 0]
+    state: [40, 47, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16.0, 49, 0]
+    state: [44, 47, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36.0, 49, 0]
+    state: [50, 47, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40.0, 49, 0]
+    state: [0, 48, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46.0, 49, 0]
+    state: [2, 48, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [50.0, 49, 0]
+    state: [4, 48, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 51.0, width: 1.0}
-    state: [25.0, 50, 0]
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [6, 48, 0]
     unobstructed: False
     plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [8, 4
