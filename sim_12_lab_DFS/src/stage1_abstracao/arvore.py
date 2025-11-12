@@ -18,7 +18,7 @@ def gerarArvore(matriz):
                 novaMatriz[i][j] = None
             else:
                 # O Python vai FALHAR AQUI se houver um erro, mas agora irá MOSTRAR
-                no = No(matriz[i][j], i, j) 
+                no = No(matriz[i][j], i, j, (linhas - 1)) 
                 novaMatriz[i][j] = no
     
     return novaMatriz

@@ -5,7 +5,7 @@ class No:
     matriz_binaria = []
     matriz = []   # atualizar matriz para cada cenário
     NOS = []
-    def __init__(self, valor, linha, coluna ):
+    def __init__(self, valor, linha, coluna, tamanho ):
         if valor == 1:
             raise ValueError("Não é possível criar um nó em um obstáculo")
         
@@ -14,7 +14,7 @@ class No:
         self.status = Status.NAO_VISITADO
         self.posicao = [linha, coluna]
         self.pai = None
-        self.equivalente = [coluna, 20 - linha]
+        self.equivalente = [coluna, tamanho - linha]
         self.visitas = 0
         No.NOS.append(self)
             

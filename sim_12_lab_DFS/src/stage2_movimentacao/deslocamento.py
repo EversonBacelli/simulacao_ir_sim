@@ -2,7 +2,7 @@ import irsim
 from sim_12_lab_DFS.src.stage2_movimentacao.main import menorCaminho
 from sim_12_lab_DFS.src.classes.no import No, Status
 
-env = irsim.make('/sim_12_lab_DFS/src/mapas/labTeste.yaml')
+env = irsim.make('/sim_12_lab_DFS/src/mapas/mapa_20x20/mapa20x20_15.yaml')
 
 
 def remontarLista(pontoInicial, lista):

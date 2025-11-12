@@ -1,4 +1,5 @@
 
+
 world:
   height: 51
   width: 51
@@ -9,7 +10,7 @@ world:
   collision_mode: 'unobstructed'
   plot:
     show-title: True
-    title: 'Robot World 52x50 (matriz50x50_15)'
+    title: 'Robot World 51x51 (matriz50x50_30)'
     show-axis: True
     x-label: 'X'
     y-label: 'Y'
@@ -18,14 +19,12 @@ robot:
   - number: 1
     kinematics: {name: 'omni'}
     shape: {name: 'circle', radius: 0.2}
-    # Ponto de partida: [X=1, Y=1] (Posição '0' livre próxima ao canto superior esquerdo)
-    state: [1, 1, 0] 
-    # Objetivo: [X=48, Y=50] (Posição '0' livre próxima ao canto inferior direito)
-    goal: [48, 50, 0] 
+    state: [2, 2, 0] # Ponto de partida
+    goal: [48, 48, 0] # Objetivo (ajustado para o novo limite)
     behavior: {name: 'dash'}
     color: 'g'
     plot:
-      show_trajectory: True
+     show_trajectory: True
     sensors:
         - name: 'lidar2d'
           range_min: 1.0
@@ -36,7 +35,6 @@ robot:
           alpha: 0.2
 
 obstacle:
-  # Linha Y=0
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 0, 0]
     unobstructed: False
@@ -237,13 +235,20 @@ obstacle:
     state: [49, 0, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=1
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 0, 0]
+    unobstructed: False
+    plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 1, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2, 1, 0]
+    state: [4, 1, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [8, 1, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -251,20 +256,31 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30, 1, 0]
+    state: [26, 1, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36, 1, 0]
+    state: [38, 1, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 1, 0]
+    state: [42, 1, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=2
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [48, 1, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 1, 0]
+    unobstructed: False
+    plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [1, 2, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -272,15 +288,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [3, 2, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [4, 2, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [5, 2, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -288,15 +296,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [7, 2, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [8, 2, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [9, 2, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -308,7 +308,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [13, 2, 0]
+    state: [12, 2, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -316,11 +316,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16, 2, 0]
+    state: [15, 2, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [17, 2, 0]
+    state: [16, 2, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -360,6 +360,10 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [29, 2, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [30, 2, 0]
     unobstructed: False
     plot: {color: 'black'}
@@ -372,11 +376,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [33, 2, 0]
+    state: [34, 2, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34, 2, 0]
+    state: [35, 2, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -384,11 +388,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38, 2, 0]
+    state: [37, 2, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [39, 2, 0]
+    state: [38, 2, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -400,10 +404,6 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [43, 2, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [44, 2, 0]
     unobstructed: False
     plot: {color: 'black'}
@@ -412,24 +412,23 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [47, 2, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [48, 2, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 2, 0]
+    state: [50, 2, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=3
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 3, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10, 3, 0]
+    state: [3, 3, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [6, 3, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -437,11 +436,15 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26, 3, 0]
+    state: [18, 3, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [28, 3, 0]
+    state: [24, 3, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [26, 3, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -449,11 +452,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36, 3, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38, 3, 0]
+    state: [40, 3, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -465,10 +464,9 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 3, 0]
+    state: [50, 3, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=4
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 4, 0]
     unobstructed: False
@@ -510,10 +508,6 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [11, 4, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [12, 4, 0]
     unobstructed: False
     plot: {color: 'black'}
@@ -538,11 +532,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18, 4, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20, 4, 0]
+    state: [19, 4, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -558,19 +548,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24, 4, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [25, 4, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26, 4, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [28, 4, 0]
+    state: [27, 4, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -578,23 +560,19 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30, 4, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [31, 4, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [32, 4, 0]
+    state: [33, 4, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34, 4, 0]
+    state: [35, 4, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36, 4, 0]
+    state: [37, 4, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -602,7 +580,15 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [39, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [40, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [41, 4, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -618,6 +604,10 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [45, 4, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [46, 4, 0]
     unobstructed: False
     plot: {color: 'black'}
@@ -626,16 +616,31 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 4, 0]
+    state: [50, 4, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=5
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 5, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [9, 5, 0]
+    state: [4, 5, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [8, 5, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [12, 5, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [18, 5, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [20, 5, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -647,30 +652,29 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [33, 5, 0]
+    state: [28, 5, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [39, 5, 0]
+    state: [30, 5, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [41, 5, 0]
+    state: [32, 5, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [43, 5, 0]
+    state: [34, 5, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [45, 5, 0]
+    state: [46, 5, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 5, 0]
+    state: [50, 5, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=6
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 6, 0]
     unobstructed: False
@@ -680,19 +684,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [3, 6, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [4, 6, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [5, 6, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [7, 6, 0]
+    state: [6, 6, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -700,15 +696,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [9, 6, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [10, 6, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [11, 6, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -716,15 +704,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [13, 6, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [14, 6, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [15, 6, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -752,10 +732,6 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [27, 6, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [28, 6, 0]
     unobstructed: False
     plot: {color: 'black'}
@@ -768,19 +744,15 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [33, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [34, 6, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [35, 6, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [36, 6, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [37, 6, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -789,6 +761,10 @@ obstacle:
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [40, 6, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [41, 6, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -804,18 +780,13 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [47, 6, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [48, 6, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 6, 0]
+    state: [50, 6, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=7
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 7, 0]
     unobstructed: False
@@ -825,47 +796,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6, 7, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10, 7, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [16, 7, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18, 7, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20, 7, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22, 7, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24, 7, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30, 7, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [32, 7, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34, 7, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40, 7, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -873,14 +804,9 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48, 7, 0]
+    state: [50, 7, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 7, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  # Linha Y=8
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 8, 0]
     unobstructed: False
@@ -898,7 +824,15 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [7, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [8, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [9, 8, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -910,11 +844,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14, 8, 0]
+    state: [13, 8, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [15, 8, 0]
+    state: [14, 8, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -922,7 +856,15 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [17, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [18, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [19, 8, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -938,15 +880,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [25, 8, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [26, 8, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [27, 8, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -954,15 +888,19 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [29, 8, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [30, 8, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [31, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [32, 8, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [33, 8, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -974,19 +912,15 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [37, 8, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [38, 8, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [39, 8, 0]
+    state: [40, 8, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40, 8, 0]
+    state: [41, 8, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1006,24 +940,15 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [47, 8, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [48, 8, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 8, 0]
+    state: [50, 8, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=9
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 9, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2, 9, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1031,11 +956,31 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [10, 9, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [12, 9, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18, 9, 0]
+    state: [14, 9, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [16, 9, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [22, 9, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [28, 9, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [36, 9, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1043,14 +988,17 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46, 9, 0]
+    state: [44, 9, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 9, 0]
+    state: [48, 9, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=10
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 9, 0]
+    unobstructed: False
+    plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 10, 0]
     unobstructed: False
@@ -1060,23 +1008,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [3, 10, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [4, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [5, 10, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [6, 10, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [7, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1085,10 +1021,6 @@ obstacle:
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [10, 10, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [11, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1108,19 +1040,15 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [17, 10, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [18, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20, 10, 0]
+    state: [19, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [21, 10, 0]
+    state: [20, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1132,19 +1060,15 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [25, 10, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [26, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [28, 10, 0]
+    state: [27, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [29, 10, 0]
+    state: [28, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1153,10 +1077,6 @@ obstacle:
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [32, 10, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [33, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1176,6 +1096,10 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [41, 10, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [42, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
@@ -1188,10 +1112,6 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [45, 10, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [46, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
@@ -1200,24 +1120,15 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 10, 0]
+    state: [50, 10, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=11
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 11, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [4, 11, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6, 11, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10, 11, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1229,38 +1140,25 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20, 11, 0]
+    state: [22, 11, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30, 11, 0]
+    state: [28, 11, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [32, 11, 0]
+    state: [36, 11, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [35, 11, 0]
+    state: [44, 11, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38, 11, 0]
+    state: [50, 11, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40, 11, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [45, 11, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 11, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  # Linha Y=12
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 12, 0]
     unobstructed: False
@@ -1270,7 +1168,15 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [3, 12, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [4, 12, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [5, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1278,7 +1184,15 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [7, 12, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [8, 12, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [9, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1286,7 +1200,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [12, 12, 0]
+    state: [11, 12, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [13, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1294,11 +1212,19 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18, 12, 0]
+    state: [15, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20, 12, 0]
+    state: [17, 12, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [19, 12, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [21, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1310,15 +1236,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24, 12, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [25, 12, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1326,11 +1244,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [28, 12, 0]
+    state: [29, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30, 12, 0]
+    state: [31, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1342,19 +1260,15 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34, 12, 0]
+    state: [35, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36, 12, 0]
+    state: [37, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38, 12, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40, 12, 0]
+    state: [39, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1370,28 +1284,23 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44, 12, 0]
+    state: [45, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46, 12, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48, 12, 0]
+    state: [47, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [49, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=13
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [0, 13, 0]
+    state: [50, 12, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2, 13, 0]
+    state: [0, 13, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1399,46 +1308,33 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6, 13, 0]
+    state: [16, 13, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [8, 13, 0]
+    state: [22, 13, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10, 13, 0]
+    state: [28, 13, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [12, 13, 0]
+    state: [42, 13, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14, 13, 0]
+    state: [46, 13, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18, 13, 0]
+    state: [48, 13, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30, 13, 0]
+    state: [50, 13, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34, 13, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38, 13, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 13, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  # Linha Y=14
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 14, 0]
     unobstructed: False
@@ -1480,11 +1376,15 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [19, 14, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [20, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22, 14, 0]
+    state: [21, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1492,15 +1392,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24, 14, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [25, 14, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1508,19 +1400,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [28, 14, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [29, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30, 14, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [32, 14, 0]
+    state: [31, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1528,19 +1412,15 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34, 14, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [35, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36, 14, 0]
+    state: [37, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38, 14, 0]
+    state: [39, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1548,7 +1428,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [42, 14, 0]
+    state: [41, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1556,26 +1436,21 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44, 14, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [45, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46, 14, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48, 14, 0]
+    state: [47, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [49, 14, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=15
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 14, 0]
+    unobstructed: False
+    plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 15, 0]
     unobstructed: False
@@ -1585,31 +1460,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6, 15, 0]
+    state: [18, 15, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [8, 15, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [12, 15, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14, 15, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16, 15, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20, 15, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24, 15, 0]
+    state: [22, 15, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1617,26 +1472,21 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [32, 15, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [34, 15, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38, 15, 0]
+    state: [40, 15, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48, 15, 0]
+    state: [46, 15, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 15, 0]
+    state: [50, 15, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=16
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 16, 0]
     unobstructed: False
@@ -1666,15 +1516,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [13, 16, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [14, 16, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [15, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1698,15 +1540,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [23, 16, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [24, 16, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [25, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1714,15 +1548,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [27, 16, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [28, 16, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [29, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1734,15 +1560,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [33, 16, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [34, 16, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [35, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1750,15 +1568,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [37, 16, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [38, 16, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [39, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1766,15 +1576,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [41, 16, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [42, 16, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [43, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1790,28 +1592,31 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 16, 0]
+    state: [50, 16, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=17
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 17, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2, 17, 0]
+    state: [6, 17, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [4, 17, 0]
+    state: [8, 17, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10, 17, 0]
+    state: [12, 17, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22, 17, 0]
+    state: [28, 17, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [32, 17, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1819,14 +1624,13 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46, 17, 0]
+    state: [42, 17, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 17, 0]
+    state: [50, 17, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=18
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 18, 0]
     unobstructed: False
@@ -1836,27 +1640,15 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [3, 18, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [4, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [5, 18, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [7, 18, 0]
+    state: [6, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [8, 18, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [9, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1872,23 +1664,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [13, 18, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [14, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [15, 18, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [16, 18, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [17, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1904,19 +1684,15 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [23, 18, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [24, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [28, 18, 0]
+    state: [26, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [29, 18, 0]
+    state: [28, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1932,11 +1708,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [33, 18, 0]
+    state: [34, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34, 18, 0]
+    state: [36, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -1952,71 +1728,45 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [43, 18, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [44, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [45, 18, 0]
+    state: [46, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [47, 18, 0]
+    state: [48, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 18, 0]
+    state: [50, 18, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=19
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 19, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2, 19, 0]
+    state: [12, 19, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20, 19, 0]
+    state: [16, 19, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24, 19, 0]
+    state: [22, 19, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30, 19, 0]
+    state: [36, 19, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34, 19, 0]
+    state: [50, 19, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38, 19, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [42, 19, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46, 19, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48, 19, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 19, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  # Linha Y=20
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 20, 0]
     unobstructed: False
@@ -2050,10 +1800,6 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [13, 20, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [14, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
@@ -2063,10 +1809,6 @@ obstacle:
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [16, 20, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [17, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2087,10 +1829,6 @@ obstacle:
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [26, 20, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [27, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2138,10 +1876,9 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 20, 0]
+    state: [50, 20, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=21
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 21, 0]
     unobstructed: False
@@ -2151,23 +1888,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6, 21, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [8, 21, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14, 21, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [17, 21, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22, 21, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2175,15 +1896,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30, 21, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [32, 21, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36, 21, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2191,22 +1904,13 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40, 21, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [42, 21, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [46, 21, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 21, 0]
+    state: [50, 21, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=22
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 22, 0]
     unobstructed: False
@@ -2244,6 +1948,10 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [17, 22, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [18, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
@@ -2260,19 +1968,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [25, 22, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [26, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [28, 22, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [29, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2288,23 +1988,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [35, 22, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [36, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [37, 22, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [38, 22, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [39, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2324,24 +2012,15 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [47, 22, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [48, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 22, 0]
+    state: [50, 22, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=23
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 23, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [2, 23, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2349,11 +2028,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6, 23, 0]
+    state: [12, 23, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14, 23, 0]
+    state: [20, 23, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2361,15 +2040,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24, 23, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [26, 23, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [28, 23, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2377,30 +2048,17 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36, 23, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38, 23, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [42, 23, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44, 23, 0]
+    state: [48, 23, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46, 23, 0]
+    state: [50, 23, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 23, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  # Linha Y=24
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 24, 0]
     unobstructed: False
@@ -2426,6 +2084,10 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [11, 24, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [12, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
@@ -2446,27 +2108,31 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [21, 24, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [22, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24, 24, 0]
+    state: [23, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26, 24, 0]
+    state: [25, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [28, 24, 0]
+    state: [27, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30, 24, 0]
+    state: [29, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [32, 24, 0]
+    state: [31, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2474,42 +2140,41 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34, 24, 0]
+    state: [35, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36, 24, 0]
+    state: [37, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38, 24, 0]
+    state: [39, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40, 24, 0]
+    state: [41, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [42, 24, 0]
+    state: [43, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44, 24, 0]
+    state: [45, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46, 24, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48, 24, 0]
+    state: [47, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [49, 24, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=25
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 24, 0]
+    unobstructed: False
+    plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 25, 0]
     unobstructed: False
@@ -2519,11 +2184,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [8, 25, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14, 25, 0]
+    state: [12, 25, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2531,23 +2192,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20, 25, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22, 25, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24, 25, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26, 25, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30, 25, 0]
+    state: [28, 25, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2555,15 +2200,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36, 25, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [38, 25, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40, 25, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2571,18 +2208,9 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [45, 25, 0]
+    state: [50, 25, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [47, 25, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 25, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  # Linha Y=26
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 26, 0]
     unobstructed: False
@@ -2592,19 +2220,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [3, 26, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [4, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [6, 26, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [7, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2624,10 +2244,6 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [13, 26, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [14, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
@@ -2640,15 +2256,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [19, 26, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [20, 26, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [21, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2656,23 +2264,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [23, 26, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [24, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [25, 26, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [26, 26, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [27, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2681,10 +2277,6 @@ obstacle:
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [30, 26, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [31, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2700,15 +2292,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [37, 26, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [38, 26, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [39, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2736,10 +2320,9 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 26, 0]
+    state: [50, 26, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=27
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 27, 0]
     unobstructed: False
@@ -2749,11 +2332,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6, 27, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10, 27, 0]
+    state: [8, 27, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2761,7 +2340,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16, 27, 0]
+    state: [18, 27, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [22, 27, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2777,15 +2360,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34, 27, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [38, 27, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40, 27, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2793,16 +2368,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 27, 0]
+    state: [50, 27, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=28
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 28, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [1, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2818,15 +2388,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [7, 28, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [8, 28, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [9, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2842,15 +2404,15 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [15, 28, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [16, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [18, 28, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [19, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2890,23 +2452,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [37, 28, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [38, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [39, 28, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [40, 28, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [41, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2926,20 +2476,19 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 28, 0]
+    state: [50, 28, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=29
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 29, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [3, 29, 0]
+    state: [4, 29, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10, 29, 0]
+    state: [8, 29, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2947,27 +2496,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14, 29, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20, 29, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22, 29, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24, 29, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [26, 29, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [28, 29, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2975,11 +2504,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [32, 29, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34, 29, 0]
+    state: [36, 29, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -2987,22 +2512,13 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44, 29, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46, 29, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [48, 29, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 29, 0]
+    state: [50, 29, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=30
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 30, 0]
     unobstructed: False
@@ -3020,7 +2536,15 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [8, 30, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [10, 30, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [11, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3040,15 +2564,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [17, 30, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [18, 30, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [19, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3056,11 +2572,23 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [21, 30, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [22, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [23, 30, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [24, 30, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [25, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3076,7 +2604,15 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [29, 30, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [30, 30, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [31, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3096,7 +2632,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [37, 30, 0]
+    state: [36, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3104,7 +2640,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [39, 30, 0]
+    state: [40, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3112,22 +2648,25 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [43, 30, 0]
+    state: [42, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [45, 30, 0]
+    state: [44, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [47, 30, 0]
+    state: [46, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 30, 0]
+    state: [48, 30, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=31
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 30, 0]
+    unobstructed: False
+    plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 31, 0]
     unobstructed: False
@@ -3137,15 +2676,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6, 31, 0]
+    state: [12, 31, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14, 31, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18, 31, 0]
+    state: [20, 31, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3153,15 +2688,19 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30, 31, 0]
+    state: [24, 31, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [35, 31, 0]
+    state: [26, 31, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38, 31, 0]
+    state: [28, 31, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [34, 31, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3169,20 +2708,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46, 31, 0]
+    state: [50, 31, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 31, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  # Linha Y=32
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 32, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [1, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3190,15 +2720,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [3, 32, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [4, 32, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [5, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3214,6 +2736,10 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [11, 32, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [12, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
@@ -3223,10 +2749,6 @@ obstacle:
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [16, 32, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [17, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3250,15 +2772,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [27, 32, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [28, 32, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [29, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3286,23 +2800,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [41, 32, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [42, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [43, 32, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [44, 32, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [45, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3314,16 +2816,15 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 32, 0]
+    state: [50, 32, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=33
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 33, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6, 33, 0]
+    state: [4, 33, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3331,11 +2832,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10, 33, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14, 33, 0]
+    state: [12, 33, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3343,19 +2840,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18, 33, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20, 33, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [22, 33, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24, 33, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3363,15 +2848,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30, 33, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [34, 33, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36, 33, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3379,22 +2856,13 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44, 33, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [46, 33, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48, 33, 0]
+    state: [50, 33, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 33, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  # Linha Y=34
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 34, 0]
     unobstructed: False
@@ -3420,11 +2888,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [12, 34, 0]
+    state: [11, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [13, 34, 0]
+    state: [12, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3437,10 +2905,6 @@ obstacle:
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [16, 34, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [17, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3460,11 +2924,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [25, 34, 0]
+    state: [26, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26, 34, 0]
+    state: [27, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3472,23 +2936,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [29, 34, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [30, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [31, 34, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [32, 34, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [33, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3508,7 +2960,15 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [41, 34, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [42, 34, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [43, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3524,10 +2984,9 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 34, 0]
+    state: [50, 34, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=35
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 35, 0]
     unobstructed: False
@@ -3537,19 +2996,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6, 35, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [8, 35, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [12, 35, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16, 35, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3558,10 +3005,6 @@ obstacle:
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [22, 35, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26, 35, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3577,10 +3020,6 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36, 35, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [40, 35, 0]
     unobstructed: False
     plot: {color: 'black'}
@@ -3589,14 +3028,9 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48, 35, 0]
+    state: [50, 35, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 35, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  # Linha Y=36
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 36, 0]
     unobstructed: False
@@ -3606,19 +3040,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [3, 36, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [4, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [5, 36, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [7, 36, 0]
+    state: [6, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3626,11 +3052,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [9, 36, 0]
+    state: [10, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [10, 36, 0]
+    state: [11, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3650,19 +3076,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [17, 36, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [18, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [20, 36, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [21, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3674,15 +3092,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [25, 36, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [26, 36, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [27, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3706,15 +3116,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [37, 36, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [38, 36, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [39, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3734,40 +3136,27 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [47, 36, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [48, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 36, 0]
+    state: [50, 36, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=37
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 37, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [4, 37, 0]
+    state: [8, 37, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6, 37, 0]
+    state: [12, 37, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [11, 37, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14, 37, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [18, 37, 0]
+    state: [16, 37, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3775,27 +3164,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26, 37, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [28, 37, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30, 37, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [32, 37, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [34, 37, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38, 37, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3803,20 +3172,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [42, 37, 0]
+    state: [50, 37, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 37, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  # Linha Y=38
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 38, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [1, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3824,19 +3184,19 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [3, 38, 0]
+    state: [4, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [5, 38, 0]
+    state: [6, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [7, 38, 0]
+    state: [8, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [9, 38, 0]
+    state: [10, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3844,59 +3204,63 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [13, 38, 0]
+    state: [12, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [15, 38, 0]
+    state: [14, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [17, 38, 0]
+    state: [16, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [19, 38, 0]
+    state: [18, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [21, 38, 0]
+    state: [20, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [23, 38, 0]
+    state: [22, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [25, 38, 0]
+    state: [24, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [27, 38, 0]
+    state: [26, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [29, 38, 0]
+    state: [28, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [31, 38, 0]
+    state: [30, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [33, 38, 0]
+    state: [32, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [35, 38, 0]
+    state: [34, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [37, 38, 0]
+    state: [36, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [39, 38, 0]
+    state: [38, 38, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [40, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3904,22 +3268,25 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [43, 38, 0]
+    state: [42, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [45, 38, 0]
+    state: [44, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [47, 38, 0]
+    state: [46, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 38, 0]
+    state: [48, 38, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=39
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 38, 0]
+    unobstructed: False
+    plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 39, 0]
     unobstructed: False
@@ -3929,19 +3296,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6, 39, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [8, 39, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [12, 39, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [14, 39, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3949,19 +3304,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [20, 39, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [22, 39, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [24, 39, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [32, 39, 0]
+    state: [28, 39, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -3969,36 +3316,19 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38, 39, 0]
+    state: [42, 39, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40, 39, 0]
+    state: [50, 39, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44, 39, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [46, 39, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 39, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  # Linha Y=40
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [2, 40, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [3, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -4010,7 +3340,15 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [8, 40, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [10, 40, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [11, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -4018,23 +3356,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [13, 40, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [14, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [15, 40, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [16, 40, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [17, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -4070,10 +3396,6 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [33, 40, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [34, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
@@ -4106,20 +3428,15 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 40, 0]
+    state: [50, 40, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=41
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 41, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [4, 41, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6, 41, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -4131,7 +3448,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16, 41, 0]
+    state: [18, 41, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -4143,7 +3460,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30, 41, 0]
+    state: [28, 41, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -4155,10 +3472,6 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [40, 41, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [42, 41, 0]
     unobstructed: False
     plot: {color: 'black'}
@@ -4167,14 +3480,9 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48, 41, 0]
+    state: [50, 41, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 41, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  # Linha Y=42
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 42, 0]
     unobstructed: False
@@ -4197,6 +3505,10 @@ obstacle:
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [10, 42, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [11, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -4228,19 +3540,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [25, 42, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [26, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [28, 42, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [29, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -4284,20 +3588,15 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 42, 0]
+    state: [50, 42, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=43
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 43, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [4, 43, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6, 43, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -4309,15 +3608,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [22, 43, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26, 43, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30, 43, 0]
+    state: [28, 43, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -4325,23 +3616,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [36, 43, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [38, 43, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [40, 43, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [42, 43, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [44, 43, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -4349,20 +3624,11 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [48, 43, 0]
+    state: [50, 43, 0]
     unobstructed: False
     plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 43, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  # Linha Y=44
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 44, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [1, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -4370,19 +3636,19 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [3, 44, 0]
+    state: [4, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [5, 44, 0]
+    state: [6, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [7, 44, 0]
+    state: [8, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [9, 44, 0]
+    state: [10, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -4390,82 +3656,85 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [13, 44, 0]
+    state: [12, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [15, 44, 0]
+    state: [14, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [17, 44, 0]
+    state: [16, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [19, 44, 0]
+    state: [18, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [21, 44, 0]
+    state: [20, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [23, 44, 0]
+    state: [22, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [25, 44, 0]
+    state: [24, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [27, 44, 0]
+    state: [26, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [29, 44, 0]
+    state: [28, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [31, 44, 0]
+    state: [30, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [33, 44, 0]
+    state: [32, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [35, 44, 0]
+    state: [34, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [37, 44, 0]
+    state: [36, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [39, 44, 0]
+    state: [38, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [41, 44, 0]
+    state: [40, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [43, 44, 0]
+    state: [42, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [45, 44, 0]
+    state: [44, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [47, 44, 0]
+    state: [46, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [49, 44, 0]
+    state: [48, 44, 0]
     unobstructed: False
     plot: {color: 'black'}
-  # Linha Y=45
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 44, 0]
+    unobstructed: False
+    plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [0, 45, 0]
     unobstructed: False
@@ -4475,19 +3744,15 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [6, 45, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
     state: [8, 45, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [12, 45, 0]
+    state: [14, 45, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [16, 45, 0]
+    state: [18, 45, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -4495,11 +3760,7 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [26, 45, 0]
-    unobstructed: False
-    plot: {color: 'black'}
-  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
-    state: [30, 45, 0]
+    state: [28, 45, 0]
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
@@ -4507,3 +3768,180 @@ obstacle:
     unobstructed: False
     plot: {color: 'black'}
   - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [42, 45, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [46, 45, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 45, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [0, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [2, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [4, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [6, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [8, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [10, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [11, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [12, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [14, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [15, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [16, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [18, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [20, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [22, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [24, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [26, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [28, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [30, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [32, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [34, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [36, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [38, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [40, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [42, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [44, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [46, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [48, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 46, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [0, 47, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [4, 47, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [18, 47, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [22, 47, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [28, 47, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [34, 47, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [40, 47, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [44, 47, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [50, 47, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [0, 48, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [2, 48, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [4, 48, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [6, 48, 0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 1.0, width: 1.0}
+    state: [8, 4
