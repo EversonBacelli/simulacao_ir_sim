@@ -1,0 +1,2080 @@
+world:
+  height: 31
+  width: 31
+  step_time: 0.1
+  sample_time: 0.1
+  offset: [0, 0]
+  control_mode: 'manual'
+  collision_mode: 'unobstructed'
+  plot:
+    show-title: True
+    title: 'Novo Robot World 31x31 (Mapeamento Direto da Matriz)'
+    show-axis: True
+    x-label: 'X'
+    y-label: 'Y'
+
+robot:
+  - number: 1
+    kinematics: {name: 'omni'}
+    shape: {name: 'circle', radius: 0.2}
+    # START: (1, 1) na matriz
+    state: [1, 1, 0]
+    # GOAL: (29, 29) na matriz
+    goal: [29, 29, 0]
+    behavior: {name: 'dash'}
+    color: 'g'
+    plot:
+      show_trajectory: True
+    sensors:
+      - name: 'lidar2d'
+        range_min: 1.0
+        range_max: 5
+        angle_range: 6.0
+        number: 50
+        noise: True
+        alpha: 0.2
+
+obstacle:
+  # Baseado na Matriz 31x31: 1 = Obstáculo (0.95x0.95, state = [Col, Lin])
+
+  # --- Linha 0 (Matriz) -> Y = 0 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [1, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [2, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [3, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [4, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [5, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [6, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [7, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [8, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [9, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [10, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [11, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [12, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [13, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [14, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [15, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [16, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [17, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [18, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [19, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [20, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [21, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [22, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [23, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [24, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [25, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [26, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [27, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [28, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [29, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 0, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 1 (Matriz) -> Y = 1 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 1, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [2, 1, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [20, 1, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [28, 1, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 1, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 2 (Matriz) -> Y = 2 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 2, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [2, 2, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [4, 2, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [5, 2, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [6, 2, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [7, 2, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [8, 2, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [10, 2, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [11, 2, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [12, 2, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [13, 2, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [14, 2, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [15, 2, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [16, 2, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [17, 2, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [18, 2, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [20, 2, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [21, 2, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [22, 2, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [23, 2, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [24, 2, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [26, 2, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [28, 2, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 2, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 3 (Matriz) -> Y = 3 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 3, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [4, 3, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [14, 3, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [18, 3, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [26, 3, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 3, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 4 (Matriz) -> Y = 4 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 4, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [1, 4, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [2, 4, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [3, 4, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [4, 4, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [6, 4, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [7, 4, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [8, 4, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [10, 4, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [11, 4, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [12, 4, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [13, 4, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [14, 4, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [16, 4, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [18, 4, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [19, 4, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [20, 4, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [22, 4, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [23, 4, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [24, 4, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [25, 4, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [26, 4, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [27, 4, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [28, 4, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 4, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 5 (Matriz) -> Y = 5 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 5, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [16, 5, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [24, 5, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 5, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 6 (Matriz) -> Y = 6 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 6, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [1, 6, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [2, 6, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [3, 6, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [4, 6, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [5, 6, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [6, 6, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [7, 6, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [8, 6, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [9, 6, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [10, 6, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [11, 6, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [12, 6, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [14, 6, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [15, 6, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [16, 6, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [18, 6, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [19, 6, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [20, 6, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [22, 6, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [24, 6, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [26, 6, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [27, 6, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [28, 6, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 6, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 7 (Matriz) -> Y = 7 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 7, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [22, 7, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [24, 7, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 7, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 8 (Matriz) -> Y = 8 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 8, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [2, 8, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [3, 8, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [4, 8, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [5, 8, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [6, 8, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [7, 8, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [8, 8, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [10, 8, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [11, 8, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [12, 8, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [13, 8, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [14, 8, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [16, 8, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [18, 8, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [19, 8, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [20, 8, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [22, 8, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [23, 8, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [24, 8, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [26, 8, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [28, 8, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 8, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 9 (Matriz) -> Y = 9 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 9, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [2, 9, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [4, 9, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [14, 9, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [16, 9, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [18, 9, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [22, 9, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [26, 9, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [28, 9, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 9, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 10 (Matriz) -> Y = 10 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 10, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [2, 10, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [4, 10, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [6, 10, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [7, 10, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [8, 10, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [10, 10, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [11, 10, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [12, 10, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [13, 10, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [14, 10, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [16, 10, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [18, 10, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [19, 10, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [20, 10, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [21, 10, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [22, 10, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [24, 10, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [25, 10, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [26, 10, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [27, 10, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [28, 10, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 10, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 11 (Matriz) -> Y = 11 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 11, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [2, 11, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [18, 11, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [24, 11, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 11, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 12 (Matriz) -> Y = 12 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 12, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [2, 12, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [4, 12, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [5, 12, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [6, 12, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [8, 12, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [9, 12, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [10, 12, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [11, 12, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [12, 12, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [13, 12, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [14, 12, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [16, 12, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [17, 12, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [18, 12, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [20, 12, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [21, 12, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [22, 12, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [23, 12, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [24, 12, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [26, 12, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [27, 12, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [28, 12, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 12, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 13 (Matriz) -> Y = 13 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 13, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [4, 13, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [12, 13, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [24, 13, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [26, 13, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [28, 13, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 13, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 14 (Matriz) -> Y = 14 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 14, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [2, 14, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [4, 14, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [6, 14, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [7, 14, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [8, 14, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [10, 14, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [11, 14, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [12, 14, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [14, 14, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [15, 14, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [16, 14, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [18, 14, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [19, 14, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [20, 14, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [21, 14, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [22, 14, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [24, 14, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [26, 14, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [28, 14, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 14, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 15 (Matriz) -> Y = 15 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 15, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [2, 15, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [4, 15, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [14, 15, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [16, 15, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [26, 15, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [28, 15, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 15, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 16 (Matriz) -> Y = 16 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 16, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [2, 16, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [4, 16, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [5, 16, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [6, 16, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [7, 16, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [8, 16, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [9, 16, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [10, 16, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [12, 16, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [13, 16, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [14, 16, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [16, 16, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [18, 16, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [19, 16, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [20, 16, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [21, 16, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [22, 16, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [23, 16, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [24, 16, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [26, 16, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [28, 16, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 16, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 17 (Matriz) -> Y = 17 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 17, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [2, 17, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [4, 17, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [12, 17, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [16, 17, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [22, 17, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [24, 17, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 17, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 18 (Matriz) -> Y = 18 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 18, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [2, 18, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [4, 18, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [6, 18, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [7, 18, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [8, 18, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [9, 18, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [10, 18, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [11, 18, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [12, 18, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [14, 18, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [16, 18, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [17, 18, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [18, 18, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [20, 18, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [22, 18, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [24, 18, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [25, 18, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [26, 18, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [27, 18, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [28, 18, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 18, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 19 (Matriz) -> Y = 19 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 19, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [10, 19, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [12, 19, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [14, 19, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [16, 19, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [17, 19, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [18, 19, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [19, 19, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [20, 19, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 19, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 20 (Matriz) -> Y = 20 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 20, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [2, 20, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [4, 20, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [5, 20, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [6, 20, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [7, 20, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [8, 20, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [10, 20, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [12, 20, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [14, 20, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [16, 20, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [18, 20, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [20, 20, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [21, 20, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [22, 20, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [23, 20, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [24, 20, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [25, 20, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [26, 20, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [27, 20, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [28, 20, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 20, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 21 (Matriz) -> Y = 21 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 21, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [8, 21, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [10, 21, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [12, 21, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [14, 21, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [16, 21, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [20, 21, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [22, 21, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [24, 21, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [26, 21, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [27, 21, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [28, 21, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 21, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 22 (Matriz) -> Y = 22 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 22, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [2, 22, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [3, 22, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [4, 22, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [5, 22, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [6, 22, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [8, 22, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [10, 22, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [11, 22, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [12, 22, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [13, 22, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [14, 22, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [16, 22, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [18, 22, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [20, 22, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [21, 22, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [22, 22, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [23, 22, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [24, 22, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [25, 22, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [26, 22, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [27, 22, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [28, 22, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 22, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 23 (Matriz) -> Y = 23 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 23, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [4, 23, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [6, 23, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [8, 23, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [16, 23, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [18, 23, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [22, 23, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [24, 23, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 23, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 24 (Matriz) -> Y = 24 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 24, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [1, 24, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [2, 24, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [4, 24, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [6, 24, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [8, 24, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [9, 24, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [10, 24, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [12, 24, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [14, 24, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [16, 24, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [17, 24, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [18, 24, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [20, 24, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [22, 24, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [24, 24, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [26, 24, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [28, 24, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 24, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 25 (Matriz) -> Y = 25 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 25, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [2, 25, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [4, 25, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [6, 25, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [12, 25, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [14, 25, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [20, 25, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [22, 25, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [24, 25, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [28, 25, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 25, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 26 (Matriz) -> Y = 26 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 26, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [2, 26, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [4, 26, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [6, 26, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [7, 26, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [8, 26, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [9, 26, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [10, 26, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [11, 26, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [12, 26, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [14, 26, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [16, 26, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [17, 26, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [18, 26, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [19, 26, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [20, 26, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [22, 26, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [24, 26, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [26, 26, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [28, 26, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 26, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 27 (Matriz) -> Y = 27 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 27, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [4, 27, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [8, 27, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [12, 27, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [22, 27, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [24, 27, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [26, 27, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [28, 27, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 27, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 28 (Matriz) -> Y = 28 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 28, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [2, 28, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [3, 28, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [4, 28, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [5, 28, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [6, 28, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [8, 28, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [10, 28, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [11, 28, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [12, 28, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [13, 28, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [14, 28, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [16, 28, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [17, 28, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [18, 28, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [19, 28, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [20, 28, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [21, 28, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [22, 28, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [23, 28, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [24, 28, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [26, 28, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [28, 28, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 28, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 29 (Matriz) -> Y = 29 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 29, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [26, 29, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [28, 29, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 29, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+
+  # --- Linha 30 (Matriz) -> Y = 30 (Mundo) ---
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [0, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [1, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [2, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [3, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [4, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [5, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [6, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [7, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [8, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [9, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [10, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [11, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [12, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [13, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [14, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [15, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [16, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [17, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [18, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [19, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [20, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [21, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [22, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [23, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [24, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [25, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [26, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [27, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [28, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [29, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
+  - shape: {name: 'rectangle', length: 0.95, width: 0.95}
+    state: [30, 30, 0.0]
+    unobstructed: False
+    plot: {color: 'black'}
