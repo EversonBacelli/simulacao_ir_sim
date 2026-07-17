@@ -23,7 +23,6 @@ def getMatriz20x20_15():
         [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1], # Linha 19
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]  # Linha 20
     ]
-    # 209 pontos transitáveis
     return matriz_teste
 
 def getMatriz20x20_30():
@@ -50,7 +49,6 @@ def getMatriz20x20_30():
         [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     ]
-    # 209 pontos transitáveis
     return matriz
 
 def getMatriz20x20_45():
@@ -77,5 +75,4 @@ def getMatriz20x20_45():
         [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     ]
-    # 215 pontos transitáveis
     return matriz
