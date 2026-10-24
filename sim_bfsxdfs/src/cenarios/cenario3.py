@@ -12,7 +12,6 @@ def buscarCenario40x40_15():
       [2, 9],
       [1, 39],
       [30, 25],
-      [15, 1]
     ]
     return lista_objetivos
 
@@ -29,7 +28,6 @@ def buscarCenario40x40_30():
       [2, 11],
       [1, 39],
       [30, 33],
-      [15, 1]
     ]
     return lista_objetivos
   
@@ -46,6 +44,5 @@ def buscarCenario40x40_45():
       [2, 5],
       [1, 39],
       [30, 33],
-      [15, 1]
     ]
     return lista_objetivos
