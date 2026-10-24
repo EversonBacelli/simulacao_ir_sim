@@ -14,7 +14,6 @@ def buscarCenario20x20_15():
       [1, 6],
       [15, 5],
       [8, 19],
-      [15, 1]
     ]
 
     return lista_objetivos
@@ -34,7 +33,6 @@ def buscarCenario20x20_30():
       [1, 6],
       [15, 5],
       [8, 19],
-      [15, 1]
     ]
 
     return lista_objetivos
@@ -54,7 +52,6 @@ def buscarCenario20x20_45():
       [1, 5],
       [15, 5],
       [8,19], 
-      [15, 1]
     ]
 
     return lista_objetivos
